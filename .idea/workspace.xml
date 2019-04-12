@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69d89164-34d1-4b26-be49-f2b565ba9354" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Damiano.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Damiano.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IncreasedOntology.py" beforeDir="false" afterPath="$PROJECT_DIR$/IncreasedOntology.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InputFromFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/InputFromFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OntologyManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/OntologyManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OntologyInput" beforeDir="false" afterPath="$PROJECT_DIR$/OntologyInput" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QueryInput" beforeDir="false" afterPath="$PROJECT_DIR$/QueryInput" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QueryResult.py" beforeDir="false" afterPath="$PROJECT_DIR$/QueryResult.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReasoningOnScenarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReasoningOnScenarios.py" afterDir="false" />
     </list>
@@ -18,26 +20,22 @@
     <SUITE FILE_PATH="coverage/stage_project$ReasoningOnScenarios.coverage" NAME="ReasoningOnScenarios Coverage Results" MODIFIED="1553854628086" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/stage_project$prova.coverage" NAME="prova Coverage Results" MODIFIED="1541434686337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/stage_project$InputFromFile.coverage" NAME="InputFromFile Coverage Results" MODIFIED="1554730079096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Stage_Triennale$InputFromFile.coverage" NAME="InputFromFile Coverage Results" MODIFIED="1554799021976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/stage_project$OntologyManager.coverage" NAME="OntologyManager Coverage Results" MODIFIED="1553854633098" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/stage_project$InputFromFile2.coverage" NAME="InputFromFile2 Coverage Results" MODIFIED="1553854637017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/stage_project$Try.coverage" NAME="Try Coverage Results" MODIFIED="1553854621967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OntologyInput">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="8" lean-forward="true" selection-start-column="8" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/InputFromFile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+            <state relative-caret-position="41">
+              <caret line="46" column="111" lean-forward="true" selection-start-line="46" selection-start-column="111" selection-end-line="46" selection-end-column="111" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -46,22 +44,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OntologyManager.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="53" column="78" selection-start-line="53" selection-start-column="78" selection-end-line="53" selection-end-column="78" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IncreasedOntology.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+            <state relative-caret-position="1273">
+              <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -70,12 +56,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ReasoningOnScenarios.py">
+        <entry file="file://$PROJECT_DIR$/OntologyManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1577">
-              <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+            <state relative-caret-position="1007">
+              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
               <folding>
-                <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,8 +70,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/QueryResult.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="22" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="22" />
+            <state relative-caret-position="513">
+              <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/owlready2/reasoning.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4579">
+              <caret line="241" lean-forward="true" selection-start-line="241" selection-end-line="241" />
+              <folding>
+                <element signature="e#898#917#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,26 +143,26 @@
         <option value="$PROJECT_DIR$/scaletta" />
         <option value="$PROJECT_DIR$/Try.py" />
         <option value="$PROJECT_DIR$/prova" />
-        <option value="$PROJECT_DIR$/OntologyInput" />
-        <option value="$PROJECT_DIR$/QueryInput" />
         <option value="$PROJECT_DIR$/TypicalFact.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/owlready2/reasoning.py" />
-        <option value="$PROJECT_DIR$/QueryResult.py" />
-        <option value="$PROJECT_DIR$/ReasoningOnScenarios.py" />
         <option value="$PROJECT_DIR$/IncreasedOntology.py" />
+        <option value="$PROJECT_DIR$/QueryResult.py" />
+        <option value="$PROJECT_DIR$/QueryInput" />
+        <option value="$PROJECT_DIR$/OntologyInput" />
         <option value="$PROJECT_DIR$/OntologyManager.py" />
         <option value="$PROJECT_DIR$/InputFromFile.py" />
+        <option value="$PROJECT_DIR$/ReasoningOnScenarios.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="40" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
+      <showMembers ProjectPane="false" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -173,8 +171,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="stage_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stage_project" type="462c0819:PsiDirectoryNode" />
+              <item name="Stage_Triennale" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Stage_Triennale" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -184,10 +182,14 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554730423620" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554741214066" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -385,7 +387,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="Python.FlaskServer" factoryName="Flask server">
+    <configuration default="true" type="Python.FlaskServer">
       <module name="Stage" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -600,6 +602,11 @@
       <workItem from="1554369349948" duration="4734000" />
       <workItem from="1554388492708" duration="3510000" />
       <workItem from="1554727468401" duration="2661000" />
+      <workItem from="1554739229058" duration="2031000" />
+      <workItem from="1554742065749" duration="663000" />
+      <workItem from="1554798466973" duration="1833000" />
+      <workItem from="1555061548310" duration="86000" />
+      <workItem from="1555062107982" duration="5679000" />
     </task>
     <task id="LOCAL-00001" summary="Inizio implementazione dell'operatore di tipicalità T">
       <created>1541623770725</created>
@@ -717,26 +724,36 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="394348000" />
+    <option name="totallyTimeSpent" value="404640000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20469798" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info id="Designer" order="3" />
-      <window_info id="Image Layers" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="UI Designer" order="6" />
-      <window_info id="Learn" order="7" />
+      <window_info id="Structure" order="0" side_tool="true" weight="0.24966443" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Learn" order="6" weight="0.3295302" />
+      <window_info content_ui="combo" id="Project" order="7" weight="0.18389262" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49798658" weight="0.9575071" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49798658" weight="0.8356941" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
@@ -777,6 +794,9 @@
     <MESSAGE value="Tolti alcuni codici rimasti commentati." />
     <option name="LAST_COMMIT_MESSAGE" value="Tolti alcuni codici rimasti commentati." />
   </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Stage_Triennale$InputFromFile.coverage" NAME="InputFromFile Coverage Results" MODIFIED="1555067825147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/attributes.out" />
     <entry file="file://$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/Evil_chair" />
@@ -798,13 +818,6 @@
     <entry file="file://$PROJECT_DIR$/Try.py" />
     <entry file="file://$PROJECT_DIR$/prova2" />
     <entry file="file://$PROJECT_DIR$/prova" />
-    <entry file="file://$PROJECT_DIR$/QueryInput">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/desktop.ini">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -819,13 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="3724" column="8" selection-start-line="3724" selection-start-column="8" selection-end-line="3724" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/owlready2/reasoning.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1505">
-          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
         </state>
       </provider>
     </entry>
@@ -850,30 +856,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IncreasedOntology.py">
+    <entry file="file://$APPLICATION_PLUGINS_DIR$/python/helpers/typeshed/stdlib/3/types.pyi">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        <state relative-caret-position="-1" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/owlready2/class_construct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="178" selection-start-line="178" selection-end-line="178" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/owlready2/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-325" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/owlready2/reasoning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4579">
+          <caret line="241" lean-forward="true" selection-start-line="241" selection-end-line="241" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#898#917#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ReasoningOnScenarios.py">
+    <entry file="file://$PROJECT_DIR$/OntologyManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1577">
-          <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+        <state relative-caret-position="1007">
+          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QueryResult.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -884,27 +900,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OntologyManager.py">
+    <entry file="file://$PROJECT_DIR$/ReasoningOnScenarios.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="53" column="78" selection-start-line="53" selection-start-column="78" selection-end-line="53" selection-end-column="78" />
+        <state relative-caret-position="1102">
+          <caret line="58" column="72" selection-start-line="58" selection-start-column="72" selection-end-line="58" selection-end-column="72" />
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IncreasedOntology.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1273">
+          <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QueryResult.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QueryInput">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/OntologyInput">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" lean-forward="true" selection-start-column="8" selection-end-column="8" />
+        <state relative-caret-position="95">
+          <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/InputFromFile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+        <state relative-caret-position="41">
+          <caret line="46" column="111" lean-forward="true" selection-start-line="46" selection-start-column="111" selection-end-line="46" selection-end-column="111" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>

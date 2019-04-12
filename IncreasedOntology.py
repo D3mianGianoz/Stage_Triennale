@@ -20,7 +20,6 @@ def compute_probability_for_typical_members(ontology_manager):
             probability_to_assign_to_typical_member = float(probability_to_assign_to_typical_member *
                                                             ontology_manager.typical_facts_list[i].probability)
             i = i + 1
-
         probability_to_assign_to_typical_member = \
             float(probability_to_assign_to_typical_member * ontology_manager.typical_facts_list[i].probability)
         __set_probability(
@@ -56,7 +55,8 @@ def set_probability_for_each_scenario(scenarios, ontology_manager):
         diff = __difference(scenario, ontology_manager.typical_members_list)
         for key in diff:
             typical_member = __get_typical_member(key, ontology_manager)
-            probability_to_assign_to_each_scenario = probability_to_assign_to_each_scenario * (1 - typical_member.probability)
+            probability_to_assign_to_each_scenario = probability_to_assign_to_each_scenario * \
+                                                     (1 - typical_member.probability)
         ontology_manager.scenarios_list.append(Scenario(scenario,
                                                         probability_to_assign_to_each_scenario))
 

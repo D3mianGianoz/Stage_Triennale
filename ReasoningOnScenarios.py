@@ -21,6 +21,7 @@ def __query_hermit(ontology_manager):
 def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_probability_bound=1):
     query_result = QueryResult()
     total_probability = 0
+    filtered_scenarios = []
     if lower_probability_bound != 0 or higher_probability_bound != 1:
         filtered_scenarios = [scenario for scenario in ontology_manager.scenarios_list
                               if lower_probability_bound <= scenario.probability <= higher_probability_bound]
@@ -68,6 +69,7 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
             print("=====================")
             query_result.list_of_logical_consequent_scenarios.append(scenario)
             total_probability = total_probability + scenario.probability
+        ontology_manager_support = None
     query_result.probability = total_probability
     return query_result
 
@@ -91,3 +93,4 @@ def __read_query(ontology_manager):
         print("Query aggiunta: " + couple_member_class[0] + " " + ontology_manager.get_class("Not(" + couple_member_class[1] + ")").name)
         ontology_manager.add_member_to_class(couple_member_class[0], not_class_c)
     file_object.close()
+

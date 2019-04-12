@@ -5,11 +5,7 @@ Classe che rappresenta i risultati dell'interrogazione dell'ontologia
 
 class QueryResult:
 
-    def __init__(self, list_of_logical_consequent_scenarios: object = None, probability: float = None) -> object:
-        """
-
-        :rtype: object
-        """
+    def __init__(self, list_of_logical_consequent_scenarios=None, probability=None):
         if list_of_logical_consequent_scenarios is None:
             list_of_logical_consequent_scenarios = []
         if probability is None:
