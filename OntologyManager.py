@@ -1,5 +1,4 @@
 from owlready2 import *
-import owlready2
 import types
 from TypicalFact import *
 from AboxMember import *
@@ -75,7 +74,8 @@ class OntologyManager:
                 print("Scenario vuoto" + "\n" + "Probabilità scenario: " + str(s.probability))
             else:
                 for tm in s.list_of_typical_members:
-                    record = record + "Typical(" + tm.t_class_identifier.name + ")" + "," + tm.member_name + "," + str(tm.probability) + "\n"
+                    record = record + "Typical(" + tm.t_class_identifier.name + ")" + "," + tm.member_name + "," \
+                             + str(tm.probability) + "\n"
                 record = record + "Probabilità scenario: " + str(s.probability)
                 print(record)
             print("FINE SCENARIO " + str(num_scenario))

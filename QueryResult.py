@@ -24,9 +24,9 @@ class QueryResult:
                 print("Scenario vuoto; " + str(s.probability))
             else:
                 for tm in s.list_of_typical_members:
-                    record = record + tm.t_class_identifier.name + "," + tm.member_name + "," + str(tm.probability) + \
-                             " ;"
-                record = record + str(s.probability)
+                    record = record + tm.t_class_identifier.name + "," + tm.member_name + "," \
+                             + str(tm.probability) + "; "
+                record = record + "\nProbabilita complessiva dello scenario: " + str(s.probability)
                 print(record)
             print("FINE SCENARIO " + str(num_scenario))
             print("\n")
