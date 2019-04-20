@@ -68,6 +68,7 @@ def build_ontology(onto_manager: OntologyManager):
                     else:
                         onto_manager.add_typical_fact(onto_manager.get_class(splitted_fact[0]),
                                                       onto_manager.get_class(splitted_fact[1]))
+    onto_manager.save_base_world()
     file_object.close()
 
 

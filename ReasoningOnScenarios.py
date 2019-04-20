@@ -7,6 +7,14 @@ Questo modulo è composto da una serie di metodi che permettono di ragionare sug
 query in input segue logicamente dalla base di conoscenza con l'aggiunta dello scenario corrente.
 '''
 
+'''
+TODO
+lo sviluppo di un meccanismo di selezione degli scenari
+su cui effettuare la fase di interrogazione; infatti attualmente vengono considera-
+ti tutti gli scenari possibili tuttavia,in generale, solo alcuni possono concretamente
+realizzarsi, per tanto risulta essere superfluo ragionare su questi scenari impossibili.
+'''
+
 
 def __translate_scenario(scenario, ontology_manager):
     for tm in scenario.list_of_typical_members:
@@ -17,6 +25,16 @@ def __translate_scenario(scenario, ontology_manager):
 def __query_hermit(ontology_manager):
     return ontology_manager.consistency()
 
+# 1. Viene creata una copia dell’ontologia (righe [34;36]).
+# 2. Alla copia viene aggiunta la query e lo scenario corrente (righe [51;58]).
+# 3. Si verifica la conseguenzialità logica del fatto F (righe [69;78]).
+# 4. Si salva lo scenario appena aggiunto, se viene verificata la conseguenzialità
+#    logica (riga 79), in un oggetto di tipo QueryResult.
+# 5. Viene accumulata la probabilità totale dell’interrogazione data dalla somma
+#    delle probabilità degli scenari salvati (riga 80).
+# 6. Viene distrutta la copia dell’ontologia (riga 81).
+# 7. All’uscita del ciclo viene salvata la probabilità totale accumulata nell’oggetto
+#    di tipo QueryResult
 
 def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_probability_bound=1):
     query_result = QueryResult()
@@ -27,36 +45,37 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
     else:
         filtered_scenarios = ontology_manager.scenarios_list
     for scenario in filtered_scenarios:
-        ontology_manager_support = OntologyManager("http://test.org/onto.owl")
-        InputFromFile.build_ontology(ontology_manager_support)
+        #ontology_manager_support = OntologyManager("http://test.org/onto.owl")
+        #InputFromFile.build_ontology(ontology_manager_support)
+        ontology_manager.create_new_world()
         print("ONTOLOGIA PRIMA DELLA LETTURA DELLA QUERY")
         print("=================================")
-        ontology_manager_support.show_members_in_classes()
-        ontology_manager_support.show_classes_iri()
+        ontology_manager.show_members_in_classes()
+        ontology_manager.show_classes_iri()
         print("=================================")
         print("FINE ONTOLOGIA PRIMA DELLA LETTURA DELLA QUERY")
         print("\n")
         print("LETTURA QUERY")
         print("=================================")
-        __read_query(ontology_manager_support)
+        __read_query(ontology_manager)
         print("=================================")
         print("LETTURA QUERY TERMINATA")
         print("\n")
         print("TRADUCENDO LO SCENARIO: ")
         print("=================================")
         OntologyManager.show_a_specific_scenario(scenario)
-        __translate_scenario(scenario, ontology_manager_support)
+        __translate_scenario(scenario, ontology_manager)
         print("=================================")
         print("FINE TRADUZIONE SCENARIO")
         print("\n")
         print("ONTOLOGIA CON SCENARIO E QUERY")
         print("=================================")
-        ontology_manager_support.show_classes_iri()
-        ontology_manager_support.show_members_in_classes()
+        ontology_manager.show_classes_iri()
+        ontology_manager.show_members_in_classes()
         print("=================================")
         print("FINE ONTOLOGIA CON SCENARIO E QUERY")
         print("\n")
-        if __query_hermit(ontology_manager_support) == "The ontology is consistent":
+        if __query_hermit(ontology_manager) == "The ontology is consistent":
             print("=====================")
             print("Il fatto non segue logicamente nel seguente scenario: ")
             OntologyManager.show_a_specific_scenario(scenario)
@@ -68,10 +87,17 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
             print("=====================")
             query_result.list_of_logical_consequent_scenarios.append(scenario)
             total_probability = total_probability + scenario.probability
-        # ontology_manager_support = None
+        #ontology_manager = None
+        ontology_manager.close_new_world()
     query_result.probability = total_probability
     return query_result
 
+
+# Il risultato è che se si vuole verificare che nome_membro;nome_classe segua lo-
+# gicamente dalla base di conoscenza dell’ontologia, il membro nome_membro viene
+# aggiunto alla classe not_class_c
+# al contrario, se si deve controllare che nome_membro;Not(nome_classe) segua logicamente
+# allora l’aggiunta del membro nome_membro alla classe class_c
 
 def __read_query(ontology_manager):
     file_object = open("QueryInput", "r")

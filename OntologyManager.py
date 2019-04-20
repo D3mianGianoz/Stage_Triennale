@@ -3,6 +3,9 @@ import types
 from TypicalFact import *
 from AboxMember import *
  # owlready2.JAVA_EXE = "C:\\Program Files\\Java\\jdk-11.0.2\\bin\\java.exe"
+path_project = "C:\\Users\\Damiano\\Documents\\Tesi_interna\\Stage_Triennale\\mixed_util\\backend.sqlite3"
+path_onto_file = \
+    "file://C:\\Users\\Damiano\\Documents\\Tesi_interna\\Stage_Triennale\\mixed_util\\Temporary_ontology.owl"
 
 '''
 Classe che rappresenta l'ontologia, fornisce vari metodi per gestirla.
@@ -17,9 +20,12 @@ class OntologyManager:
         self.typical_members_list = list()
         self.scenarios_list = list()
         self.my_world = World()
+        # Test
         if iri != "http://www.example.org/onto.owl":
-            self.onto = self.my_world.get_ontology(iri)
+            self.big_world = World(filename=path_project)
+            self.onto = self.big_world.get_ontology("http://www.example.org/onto.owl")
         else:
+            self.my_world.set_backend(filename=path_project, exclusive=True)
             self.onto = self.my_world.get_ontology("http://www.example.org/onto.owl")
 
     def create_complementary_class(self, class_identifier):
@@ -133,19 +139,34 @@ class OntologyManager:
     def is_consistent(self):
         return self.consistency()
 
-    def consistency(self):
+    def consistency(self, condition: bool = False):
         try:
             with self.onto:
-                sync_reasoner(self.my_world)
+                if condition:
+                    sync_reasoner(self.my_world)
+                else:
+                    sync_reasoner(self.big_world)
                 return "The ontology is consistent"
-        except OwlReadyInconsistentOntologyError:
+        except :
             return "The ontology is inconsistent"
 
     def show_classes_iri(self):
-        for c in self.my_world.classes():
+        for c in self.big_world.classes():
             print(str(c.name) + " is_a " + str(c.is_a))
 
     def show_members_in_classes(self):
-        for c in self.my_world.classes():
+        for c in self.big_world.classes():
             for m in c.instances():
                 print(m.name + " is_a " + c.name)
+
+    def save_base_world(self):
+        self.my_world.save()
+        self.my_world.close()
+
+    def create_new_world(self):
+        self.big_world = World(filename=path_project)
+        self.onto = self.big_world.get_ontology("http://www.example.org/onto.owl").load()
+
+    def close_new_world(self):
+        self.big_world.close()
+

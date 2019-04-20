@@ -1,8 +1,0 @@
-Classes:
-CardPlayer PokemonCardPlayer YoungPerson Student InstagramUser Not(YoungPerson)
-Set_as_sub_class:
-PokemonCardPlayer,CardPlayer
-Set_typical_facts:
-T(CardPlayer),Not(YoungPerson),0.85 T(PokemonCardPlayer),YoungPerson,0.7 T(Student),YoungPerson,0.6 T(Student),InstagramUser,0.8
-Add_members_to_class:
-lollo;PokemonCardPlayer thomas;Student
