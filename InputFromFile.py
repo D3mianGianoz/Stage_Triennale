@@ -1,5 +1,6 @@
 import IncreasedOntology
 import ReasoningOnScenarios
+import time
 from OntologyManager import *
 
 '''
@@ -73,6 +74,9 @@ def build_ontology(onto_manager: OntologyManager):
 
 
 if __name__ == '__main__':
+    # Inizio simulazione
+    t = time.time()
+
     ontology_manager = OntologyManager()
     build_ontology(ontology_manager)
     IncreasedOntology.compute_probability_for_typical_members(ontology_manager)
@@ -82,3 +86,7 @@ if __name__ == '__main__':
     ontology_manager.show_scenarios()
     query_result = ReasoningOnScenarios.is_logical_consequence(ontology_manager)
     query_result.show_query_result()
+
+    # Fine simulazione
+    t = time.time() - t
+    print("\nFine simulazione, tempo totale: ", float(t), " s")

@@ -1,9 +1,9 @@
 from owlready2 import *
-import types
+import types, os
 from TypicalFact import *
 from AboxMember import *
- # owlready2.JAVA_EXE = "C:\\Program Files\\Java\\jdk-11.0.2\\bin\\java.exe"
-path_project = "C:\\Users\\Damiano\\Documents\\Tesi_interna\\Stage_Triennale\\mixed_util\\backend.sqlite3"
+
+PATH_PROJECT = os.path.dirname(__file__) + "mixed_util\\backend.sqlite3"
 path_onto_file = \
     "file://C:\\Users\\Damiano\\Documents\\Tesi_interna\\Stage_Triennale\\mixed_util\\Temporary_ontology.owl"
 
@@ -20,13 +20,8 @@ class OntologyManager:
         self.typical_members_list = list()
         self.scenarios_list = list()
         self.my_world = World()
-        # Test
-        if iri != "http://www.example.org/onto.owl":
-            self.big_world = World(filename=path_project)
-            self.onto = self.big_world.get_ontology("http://www.example.org/onto.owl")
-        else:
-            self.my_world.set_backend(filename=path_project, exclusive=True)
-            self.onto = self.my_world.get_ontology("http://www.example.org/onto.owl")
+        self.my_world.set_backend(filename=PATH_PROJECT, exclusive=True)
+        self.onto = self.my_world.get_ontology(iri)
 
     def create_complementary_class(self, class_identifier):
         with self.onto:
@@ -164,9 +159,17 @@ class OntologyManager:
         self.my_world.close()
 
     def create_new_world(self):
-        self.big_world = World(filename=path_project)
+        self.big_world = World(filename=PATH_PROJECT)
         self.onto = self.big_world.get_ontology("http://www.example.org/onto.owl").load()
 
     def close_new_world(self):
         self.big_world.close()
+
+
+# original in __init_
+'''
+if iri != "http://www.example.org/onto.owl":
+    self.big_world = World(filename=PATH_PROJECT)
+    self.onto = self.big_world.get_ontology("http://www.example.org/onto.owl")
+'''
 

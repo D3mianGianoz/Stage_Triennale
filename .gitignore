@@ -114,4 +114,5 @@ dmypy.json
 .pyre/
 
 # PyCharm - Intellij
-.idea/
+**/.idea/workspace.xml
+**/.idea/tasks.xml
