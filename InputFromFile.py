@@ -1,6 +1,5 @@
 import IncreasedOntology
 import ReasoningOnScenarios
-import time
 from OntologyManager import *
 
 '''

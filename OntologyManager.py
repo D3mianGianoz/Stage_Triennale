@@ -3,15 +3,13 @@ import types, os
 from TypicalFact import *
 from AboxMember import *
 
-PATH_PROJECT = os.path.dirname(__file__) + "mixed_util\\backend.sqlite3"
+PATH_DB = os.path.dirname(__file__) + "/mixed_util/backend.sqlite3"
 path_onto_file = \
     "file://C:\\Users\\Damiano\\Documents\\Tesi_interna\\Stage_Triennale\\mixed_util\\Temporary_ontology.owl"
 
 '''
 Classe che rappresenta l'ontologia, fornisce vari metodi per gestirla.
 '''
-
-# Serve per l'ontologia di supporto
 
 class OntologyManager:
     def __init__(self, iri="http://www.example.org/onto.owl"):
@@ -20,7 +18,8 @@ class OntologyManager:
         self.typical_members_list = list()
         self.scenarios_list = list()
         self.my_world = World()
-        self.my_world.set_backend(filename=PATH_PROJECT, exclusive=True)
+        self.my_world.set_backend(filename=PATH_DB, exclusive=True)
+        self.big_world = World()
         self.onto = self.my_world.get_ontology(iri)
 
     def create_complementary_class(self, class_identifier):
@@ -88,11 +87,11 @@ class OntologyManager:
         print("INIZIO SCENARIO")
         record = ""
         if len(scenario.list_of_typical_members) == 0:
-            print("Scenario vuoto; " + str(scenario.probability))
+            print("Scenario vuoto;" + "\nProbabilità scenario: " + str(scenario.probability))
         else:
             for tm in scenario.list_of_typical_members:
-                record = record + tm.t_class_identifier.name + "," + tm.member_name + "," + str(tm.probability) + " ;"
-            record = record + str(scenario.probability)
+                record = record + tm.t_class_identifier.name + "," + tm.member_name + "," + str(tm.probability) + "; "
+            record = record + "\nProbabilità scenario: " + str(scenario.probability)
             print(record)
         print("FINE SCENARIO")
 
@@ -142,7 +141,7 @@ class OntologyManager:
                 else:
                     sync_reasoner(self.big_world)
                 return "The ontology is consistent"
-        except :
+        except:
             return "The ontology is inconsistent"
 
     def show_classes_iri(self):
@@ -159,7 +158,7 @@ class OntologyManager:
         self.my_world.close()
 
     def create_new_world(self):
-        self.big_world = World(filename=PATH_PROJECT)
+        self.big_world = World(filename=PATH_DB)
         self.onto = self.big_world.get_ontology("http://www.example.org/onto.owl").load()
 
     def close_new_world(self):

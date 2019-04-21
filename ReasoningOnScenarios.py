@@ -45,8 +45,6 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
     else:
         filtered_scenarios = ontology_manager.scenarios_list
     for scenario in filtered_scenarios:
-        #ontology_manager_support = OntologyManager("http://test.org/onto.owl")
-        #InputFromFile.build_ontology(ontology_manager_support)
         ontology_manager.create_new_world()
         print("ONTOLOGIA PRIMA DELLA LETTURA DELLA QUERY")
         print("=================================")
@@ -87,7 +85,6 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
             print("=====================")
             query_result.list_of_logical_consequent_scenarios.append(scenario)
             total_probability = total_probability + scenario.probability
-        #ontology_manager = None
         ontology_manager.close_new_world()
     query_result.probability = total_probability
     return query_result
