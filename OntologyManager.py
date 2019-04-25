@@ -1,11 +1,10 @@
 from owlready2 import *
-import types, os
+import types
+import os
 from TypicalFact import *
 from AboxMember import *
 
 PATH_DB = os.path.dirname(__file__) + "/mixed_util/backend.sqlite3"
-path_onto_file = \
-    "file://C:\\Users\\Damiano\\Documents\\Tesi_interna\\Stage_Triennale\\mixed_util\\Temporary_ontology.owl"
 
 '''
 Classe che rappresenta l'ontologia, fornisce vari metodi per gestirla.
@@ -104,7 +103,7 @@ class OntologyManager:
         return class_identifier(member_name)
 
     # C e C1
-    # Interesezione serve per esplicitare il concetto della doppia appartenenza
+    # Intersezione serve per esplicitare il concetto della doppia appartenenza
 
     def set_as_typical_member(self, member_name, t_class_identifier, t_class_identifier_1):
         with self.onto:
@@ -164,8 +163,15 @@ class OntologyManager:
     def close_new_world(self):
         self.big_world.close()
 
+    @staticmethod
+    def destroy_backend_db():
+        if os.path.exists(PATH_DB):
+            os.remove(PATH_DB)
+        else:
+            print("The file does not exist")
 
-# original in __init_
+
+        # original in __init_
 '''
 if iri != "http://www.example.org/onto.owl":
     self.big_world = World(filename=PATH_PROJECT)

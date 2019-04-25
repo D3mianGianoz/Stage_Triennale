@@ -89,3 +89,6 @@ if __name__ == '__main__':
     # Fine simulazione
     t = time.time() - t
     print("\nFine simulazione, tempo totale: ", float(t), " s")
+
+    # Rimozione DB
+    ontology_manager.destroy_backend_db()
