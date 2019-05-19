@@ -1,65 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69d89164-34d1-4b26-be49-f2b565ba9354" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Damiano.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Damiano.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IncreasedOntology.py" beforeDir="false" afterPath="$PROJECT_DIR$/IncreasedOntology.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OntologyInput" beforeDir="false" afterPath="$PROJECT_DIR$/OntologyInput" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QueryInput" beforeDir="false" afterPath="$PROJECT_DIR$/QueryInput" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QueryResult.py" beforeDir="false" afterPath="$PROJECT_DIR$/QueryResult.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReasoningOnScenarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReasoningOnScenarios.py" afterDir="false" />
+    <list default="true" id="ab285342-d646-42bb-afab-ea7246e20e3a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/stage_project$ReasoningOnScenarios.coverage" NAME="ReasoningOnScenarios Coverage Results" MODIFIED="1553854628086" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/stage_project$prova.coverage" NAME="prova Coverage Results" MODIFIED="1541434686337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/stage_project$InputFromFile.coverage" NAME="InputFromFile Coverage Results" MODIFIED="1554730079096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Stage_Triennale$InputFromFile.coverage" NAME="InputFromFile Coverage Results" MODIFIED="1554799021976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/stage_project$OntologyManager.coverage" NAME="OntologyManager Coverage Results" MODIFIED="1553854633098" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/stage_project$InputFromFile2.coverage" NAME="InputFromFile2 Coverage Results" MODIFIED="1553854637017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/stage_project$Try.coverage" NAME="Try Coverage Results" MODIFIED="1553854621967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-  </component>
-  <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/InputFromFile.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="46" column="111" lean-forward="true" selection-start-line="46" selection-start-column="111" selection-end-line="46" selection-end-column="111" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IncreasedOntology.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1273">
-              <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#27#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OntologyManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1007">
-              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="1026">
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -68,133 +24,52 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/QueryResult.py">
+        <entry file="file://$PROJECT_DIR$/QueryInput">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+            <state>
+              <caret column="24" selection-start-column="24" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/OntologyInput">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/owlready2/reasoning.py">
+        <entry file="file://$PROJECT_DIR$/InputFromFile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4579">
-              <caret line="241" lean-forward="true" selection-start-line="241" selection-end-line="241" />
+            <state relative-caret-position="1368">
+              <caret line="74" column="6" selection-start-line="74" selection-start-column="6" selection-end-line="74" selection-end-column="6" />
               <folding>
-                <element signature="e#898#917#0" expanded="true" />
+                <element signature="e#0#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Scenario.py">
+        <entry file="file://$PROJECT_DIR$/ReasoningOnScenarios.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+            <state relative-caret-position="950">
+              <caret line="52" column="50" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>print</find>
-      <find>TItalianTeenAger_TrapMusic</find>
-      <find>TItalian</find>
-      <find>T +</find>
-      <find>.name</find>
-      <find>add_s</find>
-      <find>om</find>
-      <find>om.</find>
-      <find>Compl class:</find>
-      <find>Asg</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>ontology_manager</replace>
-      <replace>ontology_manager.</replace>
-    </replaceStrings>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/InputFromFile2.py" />
-        <option value="$PROJECT_DIR$/OntologyManager2.py" />
-        <option value="$PROJECT_DIR$/prova.py" />
-        <option value="$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/CreateOntology.py" />
-        <option value="$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/Recommended.py" />
-        <option value="$PROJECT_DIR$/puppa" />
-        <option value="$PROJECT_DIR$/prova2" />
-        <option value="$PROJECT_DIR$/AboxMember.py" />
-        <option value="$PROJECT_DIR$/TypicalMember.py" />
-        <option value="$PROJECT_DIR$/Scenario.py" />
-        <option value="$PROJECT_DIR$/scaletta" />
-        <option value="$PROJECT_DIR$/Try.py" />
-        <option value="$PROJECT_DIR$/prova" />
-        <option value="$PROJECT_DIR$/TypicalFact.py" />
-        <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/owlready2/reasoning.py" />
-        <option value="$PROJECT_DIR$/IncreasedOntology.py" />
-        <option value="$PROJECT_DIR$/QueryResult.py" />
-        <option value="$PROJECT_DIR$/QueryInput" />
-        <option value="$PROJECT_DIR$/OntologyInput" />
-        <option value="$PROJECT_DIR$/OntologyManager.py" />
-        <option value="$PROJECT_DIR$/InputFromFile.py" />
-        <option value="$PROJECT_DIR$/ReasoningOnScenarios.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <showMembers ProjectPane="false" />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Stage_Triennale" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Stage_Triennale" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554741214066" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/InputFromFile.py" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -208,66 +83,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.InputFromFile">
-    <configuration default="true" type="DjangoTestsConfigurationType">
-      <module name="Stage" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="" />
-      <option name="SETTINGS_FILE" value="" />
-      <option name="CUSTOM_SETTINGS" value="false" />
-      <option name="USE_OPTIONS" value="false" />
-      <option name="OPTIONS" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
-      <module name="Stage" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
-      <module name="Stage" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="InputFromFile" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager">
+    <configuration name="Fase 0" type="PythonConfigurationType" factoryName="Python">
       <module name="stage_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="/usr/bin/python3.7" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/InputFromFile.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -277,467 +105,15 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="InputFromFile2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="stage_project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/InputFromFile2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="OntologyManager" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="stage_project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OntologyManager.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ReasoningOnScenarios" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="stage_project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ReasoningOnScenarios.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Try" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="stage_project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Try.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="Stage" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Python.FlaskServer">
-      <module name="Stage" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="Stage" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <module name="Stage" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Nosetests">
-      <module name="Stage" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Twisted Trial">
-      <module name="Stage" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <module name="Stage" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="py.test">
-      <module name="Stage" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Python.InputFromFile2" />
-      <item itemvalue="Python.InputFromFile" />
-      <item itemvalue="Python.OntologyManager" />
-      <item itemvalue="Python.ReasoningOnScenarios" />
-      <item itemvalue="Python.Try" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.InputFromFile" />
-        <item itemvalue="Python.InputFromFile2" />
-        <item itemvalue="Python.OntologyManager" />
-        <item itemvalue="Python.ReasoningOnScenarios" />
-        <item itemvalue="Python.Try" />
-      </list>
-    </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="1" Folder0="C:\Users\Damiano\Documents\Università" CustomDictionaries="1" CustomDictionary0="C:\Users\Damiano\Documents\Università\it.dic" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="project-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="69d89164-34d1-4b26-be49-f2b565ba9354" name="Default Changelist" comment="" />
-      <created>1541427523289</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1541427523289</updated>
-      <workItem from="1543400573173" duration="1292000" />
-      <workItem from="1543408352288" duration="7948000" />
-      <workItem from="1543484130832" duration="3081000" />
-      <workItem from="1543492669549" duration="11724000" />
-      <workItem from="1543570709555" duration="3838000" />
-      <workItem from="1543839111976" duration="11189000" />
-      <workItem from="1543915664050" duration="5116000" />
-      <workItem from="1543928411448" duration="8037000" />
-      <workItem from="1543997214577" duration="7889000" />
-      <workItem from="1544016300459" duration="1523000" />
-      <workItem from="1544088270019" duration="6450000" />
-      <workItem from="1544102608153" duration="7355000" />
-      <workItem from="1544176485438" duration="2343000" />
-      <workItem from="1544345083550" duration="13051000" />
-      <workItem from="1544359644871" duration="16222000" />
-      <workItem from="1544428498792" duration="2514000" />
-      <workItem from="1544448358451" duration="1140000" />
-      <workItem from="1544528923571" duration="11373000" />
-      <workItem from="1544607692688" duration="6152000" />
-      <workItem from="1544628759195" duration="1792000" />
-      <workItem from="1544696451347" duration="45000" />
-      <workItem from="1544696915126" duration="1448000" />
-      <workItem from="1544702731216" duration="597000" />
-      <workItem from="1544705808094" duration="9008000" />
-      <workItem from="1544717551724" duration="1094000" />
-      <workItem from="1544782240733" duration="629000" />
-      <workItem from="1544785190812" duration="1193000" />
-      <workItem from="1544786885568" duration="1271000" />
-      <workItem from="1545219295924" duration="307000" />
-      <workItem from="1545228394220" duration="1465000" />
-      <workItem from="1546864789627" duration="13107000" />
-      <workItem from="1546936536999" duration="7374000" />
-      <workItem from="1546947526997" duration="11851000" />
-      <workItem from="1547021770815" duration="7593000" />
-      <workItem from="1547029569226" duration="818000" />
-      <workItem from="1547033794415" duration="16616000" />
-      <workItem from="1547110889677" duration="9370000" />
-      <workItem from="1547125100180" duration="2449000" />
-      <workItem from="1547452761071" duration="6358000" />
-      <workItem from="1547469618134" duration="12886000" />
-      <workItem from="1547540619625" duration="8192000" />
-      <workItem from="1547553816503" duration="16739000" />
-      <workItem from="1547626822522" duration="11708000" />
-      <workItem from="1547641907969" duration="13615000" />
-      <workItem from="1547718939589" duration="2882000" />
-      <workItem from="1547722722642" duration="1739000" />
-      <workItem from="1547974415394" duration="1215000" />
-      <workItem from="1547989615068" duration="4507000" />
-      <workItem from="1548148133868" duration="5023000" />
-      <workItem from="1548161608713" duration="2420000" />
-      <workItem from="1548233165109" duration="8193000" />
-      <workItem from="1548249009880" duration="5019000" />
-      <workItem from="1548322468197" duration="3529000" />
-      <workItem from="1548335161503" duration="6036000" />
-      <workItem from="1548406349218" duration="1013000" />
-      <workItem from="1548421440994" duration="2816000" />
-      <workItem from="1548494276264" duration="6027000" />
-      <workItem from="1548591876786" duration="3201000" />
-      <workItem from="1548664758660" duration="3790000" />
-      <workItem from="1548689462494" duration="167000" />
-      <workItem from="1548837987499" duration="1217000" />
-      <workItem from="1549374698247" duration="13000" />
-      <workItem from="1549959767040" duration="294000" />
-      <workItem from="1551259558606" duration="10391000" />
-      <workItem from="1551303194975" duration="1363000" />
-      <workItem from="1551355313398" duration="5444000" />
-      <workItem from="1551387184714" duration="3722000" />
-      <workItem from="1551442108767" duration="4616000" />
-      <workItem from="1552919671068" duration="94000" />
-      <workItem from="1552992015076" duration="841000" />
-      <workItem from="1553446958318" duration="2566000" />
-      <workItem from="1553762828535" duration="53000" />
-      <workItem from="1553763062485" duration="1952000" />
-      <workItem from="1553790577516" duration="2761000" />
-      <workItem from="1553795645907" duration="2327000" />
-      <workItem from="1553851977389" duration="856000" />
-      <workItem from="1553854586162" duration="464000" />
-      <workItem from="1553879736385" duration="1130000" />
-      <workItem from="1554369349948" duration="4734000" />
-      <workItem from="1554388492708" duration="3510000" />
-      <workItem from="1554727468401" duration="2661000" />
-      <workItem from="1554739229058" duration="2031000" />
-      <workItem from="1554742065749" duration="663000" />
-      <workItem from="1554798466973" duration="1833000" />
-      <workItem from="1555061548310" duration="86000" />
-      <workItem from="1555062107982" duration="5679000" />
-    </task>
-    <task id="LOCAL-00001" summary="Inizio implementazione dell'operatore di tipicalità T">
-      <created>1541623770725</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1541623770725</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Implementazione dell'operatore di tipicalità T terminata, aspetto il riscontro con il professore">
-      <created>1541877533694</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1541877533694</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Aggiunta la probabilità nei fatti tipici (T(C) è un D) e aggiunto metodo&#10;per indicare che un elemento è tipico.">
-      <created>1543314988396</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1543314988396</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Aggiunte classi per rappresentare fatti tipici, membri tipici e membri&#10;dell'Abox. Aggiunto modulo per calcolo della probabilità e aumento &#10;dell'ontologia.(Modulo non ancora terminato)">
-      <created>1543418912299</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1543418912300</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Parte del metodo compute_probability_for_typical_members(ontology_manager) relativa al calcolo della probabilità da assegnare&#10;ai TypicalMember testata e funzionante.">
-      <created>1543503536391</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1543503536391</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Parte del metodo compute_probability_for_typical_members(ontology_manager) relativa alla creazione dei typical members con associata la probabilità completata.">
-      <created>1543853544122</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1543853544122</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Trovato modo per generare tutti gli scenari possibili. Rimane da calcolare ed associare la probabilità ad ogni scenario.">
-      <created>1543942047299</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1543942047299</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Probabilità calcolata per ogni scenario.">
-      <created>1544544967901</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1544544967901</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Test fatto su 16 scenari.">
-      <created>1544629932633</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1544629932634</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Aggiunti metodi per l'interrogazione e il controllo della consequenzialità logica, tuttavia sono ancora da testare.">
-      <created>1546943627098</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1546943627098</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Esempio 4 di pagina 17 verificato.">
-      <created>1547483407167</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1547483407167</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Situazione prima del cambio del file InputFromFile. Da qui in avanti si creeranno nuove istanze di OntologyManager per ogni scenario in modo da processare tutti gli scenari automaticamente.">
-      <created>1547630176217</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1547630176217</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Esercizio 1 testato, i risultati sullo scritto del professore combaciano con i miei.">
-      <created>1547656714388</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1547656714388</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Aggiunta di commenti al codice.">
-      <created>1549959897353</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1549959897353</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Tolti alcuni codici rimasti commentati.">
-      <created>1553448528940</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1553448528940</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Tolti alcuni codici rimasti commentati.">
-      <created>1553448910575</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1553448910575</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="404640000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.24966443" />
       <window_info id="Favorites" order="1" side_tool="true" />
@@ -746,10 +122,10 @@
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Learn" order="6" weight="0.3295302" />
-      <window_info content_ui="combo" id="Project" order="7" weight="0.18389262" />
+      <window_info content_ui="combo" id="Project" order="7" weight="0.24986821" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49798658" weight="0.8356941" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49798658" weight="0.83477324" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -757,7 +133,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50201344" side_tool="true" weight="0.9597855" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50201344" side_tool="true" weight="0.9589633" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.5241287" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
       <window_info anchor="bottom" id="Messages" order="13" />
@@ -772,270 +148,24 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Inizio implementazione dell'operatore di tipicalità T" />
-    <MESSAGE value="Implementazione dell'operatore di tipicalità T terminata, aspetto il riscontro con il professore" />
-    <MESSAGE value="Aggiunta la probabilità nei fatti tipici (T(C) è un D) e aggiunto metodo&#10;per indicare che un elemento è tipico." />
-    <MESSAGE value="Aggiunte classi per rappresentare fatti tipici, membri tipici e membri&#10;dell'Abox. Aggiunto modulo per calcolo della probabilità e aumento &#10;dell'ontologia.(Modulo non ancora terminato)" />
-    <MESSAGE value="Parte del metodo compute_probability_for_typical_members(ontology_manager) relativa al calcolo della probabilità da assegnare&#10;ai TypicalMember testata e funzionante." />
-    <MESSAGE value="Parte del metodo compute_probability_for_typical_members(ontology_manager) relativa alla creazione dei typical members con associata la probabilità completata." />
-    <MESSAGE value="Trovato modo per generare tutti gli scenari possibili. Rimane da calcolare ed associare la probabilità ad ogni scenario." />
-    <MESSAGE value="Probabilità calcolata per ogni scenario." />
-    <MESSAGE value="Test fatto su 16 scenari." />
-    <MESSAGE value="Aggiunti metodi per l'interrogazione e il controllo della consequenzialità logica, tuttavia sono ancora da testare." />
-    <MESSAGE value="Esempio 4 di pagina 17 verificato." />
-    <MESSAGE value="Situazione prima del cambio del file InputFromFile. Da qui in avanti si creeranno nuove istanze di OntologyManager per ogni scenario in modo da processare tutti gli scenari automaticamente." />
-    <MESSAGE value="Esercizio 1 testato, i risultati sullo scritto del professore combaciano con i miei." />
-    <MESSAGE value="Aggiunta di commenti al codice." />
-    <MESSAGE value="Tolti alcuni codici rimasti commentati." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tolti alcuni codici rimasti commentati." />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Stage_Triennale$InputFromFile.coverage" NAME="InputFromFile Coverage Results" MODIFIED="1555067825147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/attributes.out" />
-    <entry file="file://$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/Evil_chair" />
-    <entry file="file://$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/Pet_Fish" />
-    <entry file="file://$PROJECT_DIR$/InputFromFile2.py" />
-    <entry file="file://$PROJECT_DIR$/OntologyManager2.py" />
-    <entry file="file://$PROJECT_DIR$/prova.py" />
-    <entry file="file://$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/Input" />
-    <entry file="file://$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/Input2" />
-    <entry file="file://$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/Gui.py" />
-    <entry file="file://$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/DataFromInput.py" />
-    <entry file="file://$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/DataFromWeb.py" />
-    <entry file="file://$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/Recommended.py" />
-    <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/380545591/builtins.py" />
-    <entry file="file://$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/MkTable.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/owlready2/namespace.py" />
-    <entry file="file://$USER_HOME$/OneDrive/Documenti/Stage e tesi/Valese/COCOS/Stage/CreateOntology.py" />
-    <entry file="file://$PROJECT_DIR$/scaletta" />
-    <entry file="file://$PROJECT_DIR$/Try.py" />
-    <entry file="file://$PROJECT_DIR$/prova2" />
-    <entry file="file://$PROJECT_DIR$/prova" />
-    <entry file="file://$PROJECT_DIR$/desktop.ini">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AboxMember.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.IntelliJIdea2018.3/system/python_stubs/1875032335/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="3724" column="8" selection-start-line="3724" selection-start-column="8" selection-end-line="3724" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TypicalMember.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TypicalFact.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="86" selection-start-line="11" selection-start-column="86" selection-end-line="11" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/owlready2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_PLUGINS_DIR$/python/helpers/typeshed/stdlib/3/types.pyi">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/owlready2/class_construct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="178" selection-start-line="178" selection-end-line="178" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/owlready2/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-325" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/owlready2/reasoning.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4579">
-          <caret line="241" lean-forward="true" selection-start-line="241" selection-end-line="241" />
-          <folding>
-            <element signature="e#898#917#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OntologyManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1007">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scenario.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ReasoningOnScenarios.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
-          <caret line="58" column="72" selection-start-line="58" selection-start-column="72" selection-end-line="58" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IncreasedOntology.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1273">
-          <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QueryResult.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QueryInput">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OntologyInput">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InputFromFile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="46" column="111" lean-forward="true" selection-start-line="46" selection-start-column="111" selection-end-line="46" selection-end-column="111" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Python 3.7 interpreter library</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>11</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>stage_project</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24986821" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.70518357" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39956802" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32937366" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
 </project>
