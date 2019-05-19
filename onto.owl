@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.example.org/onto.owl"
+         xmlns="http://www.example.org/onto.owl#">
+
+<owl:Ontology rdf:about="http://www.example.org/onto.owl"/>
+
+<owl:Class rdf:about="#Bipolar">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="#Depressed"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Depressed">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MoodReactivity">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ProstateCancerPatient">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Nocturia">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Smart">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<Depressed rdf:about="#Greg">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Smart"/>
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</Depressed>
+
+<owl:Class rdf:about="#Not(MoodReactivity)">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:complementOf rdf:resource="#MoodReactivity"/>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Depressed1">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#r1"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:intersectionOf rdf:parseType="Collection">
+            <owl:Class>
+              <owl:complementOf rdf:resource="#Depressed"/>
+            </owl:Class>
+            <rdf:Description rdf:about="#Depressed1"/>
+          </owl:intersectionOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#IntersectionDepressedDepressed1">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="#Not(MoodReactivity)"/>
+  <rdfs:subClassOf rdf:resource="#Smart"/>
+  <rdfs:subClassOf rdf:resource="#Depressed"/>
+  <rdfs:subClassOf rdf:resource="#Depressed1"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Depressed"/>
+        <rdf:Description rdf:about="#Depressed1"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:ObjectProperty rdf:about="#r1"/>
+
+<owl:Class rdf:about="#NotDepressed1">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#r1"/>
+      <owl:someValuesFrom>
+        <owl:Class>
+          <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Depressed"/>
+            <rdf:Description rdf:about="#Depressed1"/>
+          </owl:intersectionOf>
+        </owl:Class>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Bipolar1">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#r1"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:intersectionOf rdf:parseType="Collection">
+            <owl:Class>
+              <owl:complementOf rdf:resource="#Bipolar"/>
+            </owl:Class>
+            <rdf:Description rdf:about="#Bipolar1"/>
+          </owl:intersectionOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#IntersectionBipolarBipolar1">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="#MoodReactivity"/>
+  <rdfs:subClassOf rdf:resource="#Bipolar"/>
+  <rdfs:subClassOf rdf:resource="#Bipolar1"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Bipolar"/>
+        <rdf:Description rdf:about="#Bipolar1"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#NotBipolar1">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#r1"/>
+      <owl:someValuesFrom>
+        <owl:Class>
+          <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Bipolar"/>
+            <rdf:Description rdf:about="#Bipolar1"/>
+          </owl:intersectionOf>
+        </owl:Class>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ProstateCancerPatient1">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#r1"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:intersectionOf rdf:parseType="Collection">
+            <owl:Class>
+              <owl:complementOf rdf:resource="#ProstateCancerPatient"/>
+            </owl:Class>
+            <rdf:Description rdf:about="#ProstateCancerPatient1"/>
+          </owl:intersectionOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#IntersectionProstateCancerPatientProstateCancerPatient1">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="#MoodReactivity"/>
+  <rdfs:subClassOf rdf:resource="#Nocturia"/>
+  <rdfs:subClassOf rdf:resource="#ProstateCancerPatient"/>
+  <rdfs:subClassOf rdf:resource="#ProstateCancerPatient1"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#ProstateCancerPatient"/>
+        <rdf:Description rdf:about="#ProstateCancerPatient1"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#NotProstateCancerPatient1">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#r1"/>
+      <owl:someValuesFrom>
+        <owl:Class>
+          <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#ProstateCancerPatient"/>
+            <rdf:Description rdf:about="#ProstateCancerPatient1"/>
+          </owl:intersectionOf>
+        </owl:Class>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+
+</rdf:RDF>

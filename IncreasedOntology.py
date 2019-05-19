@@ -17,6 +17,7 @@ def compute_probability_for_typical_members(ontology_manager):
     while i <= length:
         while i < length and ontology_manager.typical_facts_list[i].t_class_identifier.name == \
                 ontology_manager.typical_facts_list[i + 1].t_class_identifier.name:
+
             probability_to_assign_to_typical_member = float(probability_to_assign_to_typical_member *
                                                             ontology_manager.typical_facts_list[i].probability)
             i = i + 1
@@ -27,6 +28,7 @@ def compute_probability_for_typical_members(ontology_manager):
             ontology_manager,
             ontology_manager.typical_facts_list[i].t_class_identifier)
         i = i + 1
+        # Reset della probabilita
         probability_to_assign_to_typical_member = 1.0
 
 

@@ -140,7 +140,7 @@ class OntologyManager:
                 else:
                     sync_reasoner(self.big_world)
                 return "The ontology is consistent"
-        except:
+        except OwlReadyInconsistentOntologyError:
             return "The ontology is inconsistent"
 
     def show_classes_iri(self):
@@ -153,12 +153,13 @@ class OntologyManager:
                 print(m.name + " is_a " + c.name)
 
     def save_base_world(self):
+        self.onto.save("onto.owl")
         self.my_world.save()
         self.my_world.close()
 
     def create_new_world(self):
         self.big_world = World(filename=PATH_DB)
-        self.onto = self.big_world.get_ontology("http://www.example.org/onto.owl").load()
+        self.onto = self.big_world.get_ontology("file://"+ os.path.dirname(__file__) + "/onto.owl").load(True,None,True)
 
     def close_new_world(self):
         self.big_world.close()

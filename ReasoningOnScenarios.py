@@ -1,6 +1,6 @@
 from OntologyManager import *
 from QueryResult import *
-import InputFromFile
+
 
 '''
 Questo modulo è composto da una serie di metodi che permettono di ragionare sugli scenari generati verificando se la 
