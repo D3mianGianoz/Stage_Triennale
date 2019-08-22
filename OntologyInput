@@ -1,9 +1,9 @@
 Classes:
-Bipolar Depressed MoodReactivity ProstateCancerPatient Nocturia Smart Not(Smart)
+Bipolar Depressed MoodReactivity ProstateCancerPatient Nocturia Not(Smart)
 Set_as_sub_class:
 Bipolar,Depressed
 Add_members_to_class:
-Greg;Depressed,Not(Smart)
+Greg;Depressed,Not(Smart);
 Set_typical_facts:
 Typical(Depressed),Not(MoodReactivity),0.85
 Typical(Depressed),Smart,0.65

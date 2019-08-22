@@ -36,11 +36,11 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
         print("=================================")
         print("FINE ONTOLOGIA PRIMA DELLA LETTURA DELLA QUERY")
         print("\n")
-        print("LETTURA QUERY")
+        print("LETTURA SINTOMI")
         print("=================================")
-        __read_query(ontology_manager_support)
+        __read_symptoms(ontology_manager_support)
         print("=================================")
-        print("LETTURA QUERY TERMINATA")
+        print("LETTURA SINTOMI TERMINATA")
         print("\n")
         print("TRADUCENDO LO SCENARIO: ")
         print("=================================")
@@ -56,7 +56,7 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
         print("=================================")
         print("FINE ONTOLOGIA CON SCENARIO E QUERY")
         print("\n")
-        if __query_hermit(ontology_manager_support) == "The ontology is consistent":
+        if __query_hermit(ontology_manager_support) != "The ontology is consistent":
             print("=====================")
             print("Il fatto non segue logicamente nel seguente scenario: ")
             OntologyManager.show_a_specific_scenario(scenario)
@@ -77,19 +77,34 @@ def __read_query(ontology_manager):
     file_object = open("QueryInput", "r")
     line = file_object.readline().rstrip("\n")
     couple_member_class = line.split(";")
-    if couple_member_class[1].startswith("Not"):
-        couple_member_class[1] = couple_member_class[1].replace("Not", "", 1).replace("(", "").replace(")", "")
-        class_c = ontology_manager.create_class(couple_member_class[1])
-        not_class_c = ontology_manager.create_class("Not(" + couple_member_class[1] + ")")
-        class_c.equivalent_to = [Not(not_class_c)]
+    test: bool = couple_member_class[1].startswith("Not")
+    couple_member_class[1] = couple_member_class[1].replace("Not", "", 1).replace("(", "").replace(")", "")
+    class_c = ontology_manager.create_class(couple_member_class[1])
+    not_class_c = ontology_manager.create_class("Not(" + couple_member_class[1] + ")")
+    class_c.equivalent_to = [Not(not_class_c)]
+    if test:
         print("Query aggiunta: " + couple_member_class[0] + " " + ontology_manager.get_class(couple_member_class[1]).name)
-        ontology_manager.add_member_to_class(couple_member_class[0], class_c)
+        ontology_manager.add_member_to_class(couple_member_class[0], class_c, False)
     else:
-        couple_member_class[1] = couple_member_class[1].replace("Not", "", 1).replace("(", "").replace(")", "")
-        class_c = ontology_manager.create_class(couple_member_class[1])
-        not_class_c = ontology_manager.create_class("Not(" + couple_member_class[1] + ")")
-        class_c.equivalent_to = [Not(not_class_c)]
         print("Query aggiunta: " + couple_member_class[0] + " " + ontology_manager.get_class("Not(" + couple_member_class[1] + ")").name)
-        ontology_manager.add_member_to_class(couple_member_class[0], not_class_c)
+        ontology_manager.add_member_to_class(couple_member_class[0], not_class_c, False)
+    file_object.close()
+
+
+def __read_symptoms(ontology_manager):
+    file_object = open("PatientSetOfSymptoms.txt", "r")
+    line = file_object.readline().rstrip("\n")
+    couple_member_class = line.split(";")
+    test: bool = couple_member_class[1].startswith("Not")
+    couple_member_class[1] = couple_member_class[1].replace("Not", "", 1).replace("(", "").replace(")", "")
+    class_c = ontology_manager.create_class(couple_member_class[1])
+    not_class_c = ontology_manager.create_class("Not(" + couple_member_class[1] + ")")
+    class_c.equivalent_to = [Not(not_class_c)]
+    if not test:
+        print("Sintomo aggiunto: " + couple_member_class[0] + " " + class_c.name)
+        ontology_manager.add_member_to_class(couple_member_class[0], class_c, True)
+    else:
+        print("Sintomo aggiunto: " + couple_member_class[0] + " " + not_class_c.name)
+        ontology_manager.add_member_to_class(couple_member_class[0], not_class_c, True)
     file_object.close()
 

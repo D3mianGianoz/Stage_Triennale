@@ -1,3 +1,7 @@
+from typing import Any, Union
+
+from owlready2 import Not
+
 import IncreasedOntology
 import ReasoningOnScenarios
 from OntologyManager import *
@@ -16,7 +20,14 @@ def build_ontology(onto_manager: OntologyManager):
             line = file_object.readline().rstrip("\n")
             class_names_list = line.split()
             for class_name in class_names_list:
-                onto_manager.create_class(class_name)
+                if class_name.startswith("Not"):
+                    class_name = class_name.replace("Not", "", 1).replace("(", "").replace(")", "")
+                    onto_manager.create_class(class_name)
+                    test = onto_manager.create_class("Not("+class_name+")")
+                    test.equivalent_to = [
+                        onto_manager.create_complementary_class(onto_manager.get_class(class_name))]
+                else:
+                    onto_manager.create_class(class_name)
         if line[:-1] == "Set_as_sub_class:":
             line = file_object.readline().rstrip("\n")
             sub_class_list = line.split()
@@ -33,11 +44,11 @@ def build_ontology(onto_manager: OntologyManager):
                 member_name = couple_splitted[0]
                 classes = couple_splitted[1].split(",")
                 member_identifier = onto_manager.add_member_to_class(member_name,
-                                                                     onto_manager.get_class(classes[0]))
+                                                                     onto_manager.get_class(classes[0]), False)
                 i = 1
                 while i < len(classes):
                     onto_manager.add_member_to_multiple_classes(member_identifier,
-                                                                [onto_manager.get_class(classes[i])])
+                                                                [onto_manager.get_class(classes[i])], False)
                     i += 1
         if line[:-1] == "Set_typical_facts:":
             fact_list: list = file_object.read().splitlines()

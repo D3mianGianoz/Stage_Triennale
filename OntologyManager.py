@@ -28,9 +28,12 @@ class OntologyManager:
         return complementary_class
 
     def create_class(self, class_name):
-        with self.onto:
-            new_class = types.new_class(class_name, (Thing,))
-        return new_class
+        if not self.is_class_present(class_name):
+            with self.onto:
+                new_class = types.new_class(class_name, (Thing,))
+            return new_class
+        else:
+            return self.get_class(class_name)
 
     def create_property(self, property_name):
         with self.onto:
@@ -90,7 +93,7 @@ class OntologyManager:
             print("Scenario vuoto; " + str(scenario.probability))
         else:
             for tm in scenario.list_of_typical_members:
-                record = record + tm.t_class_identifier.name + "," + tm.member_name + "," + str(tm.probability) + " ;"
+                record = record + tm.t_class_identifier.name + "," + tm.member_name + "," + str(tm.probability) + "; "
             record = record + str(scenario.probability)
             print(record)
         print("FINE SCENARIO")
@@ -98,10 +101,6 @@ class OntologyManager:
     @staticmethod
     def set_classes_as_disjoint(classes_identifier_list):
         AllDisjoint(classes_identifier_list)
-
-    def add_member_to_class(self, member_name, class_identifier):
-        self.a_box_members_list.append(AboxMember(class_identifier, member_name))
-        return class_identifier(member_name)
 
     # C e C1
     # Interesezione serve per esplicitare il concetto della doppia appartenenza
@@ -117,10 +116,14 @@ class OntologyManager:
             print(member_name + " is_a " + t_class_identifier_1.name)
             print(member_name + " is_a " + t_class_intersection.name)
 
-    def add_member_to_multiple_classes(self, member_identifier, class_list):
+    def add_member_to_class(self, member_name, class_identifier, symp: bool):
+        self.a_box_members_list.append(AboxMember(class_identifier, member_name, symp))
+        return class_identifier(member_name)
+
+    def add_member_to_multiple_classes(self, member_identifier, class_list, symp):
         for c in class_list:
             member_identifier.is_a.append(c)
-            self.a_box_members_list.append(AboxMember(c, member_identifier.name))
+            self.a_box_members_list.append(AboxMember(c, member_identifier.name, symp))
 
     def is_class_present(self, class_name):
         if self.get_class(class_name) is not None:
