@@ -23,14 +23,13 @@ if __name__ == '__main__':
     build_ontology(ontology_manager)
     entailed_knowledge()
     IncreasedOntology.compute_probability_for_typical_members(ontology_manager)
-    #scenariiii = IncreasedOntology.generate_scenarios(ontology_manager)
-
     IncreasedOntology.set_probability_for_each_scenario(
         IncreasedOntology.generate_scenarios(ontology_manager),
         ontology_manager)
     ontology_manager.show_scenarios()
     query_result = ReasoningOnScenarios.is_logical_consequence(ontology_manager)
     query_result.show_query_result()
+    query_result.save_query_result()
 
 
 

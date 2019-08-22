@@ -49,12 +49,12 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
         print("=================================")
         print("FINE TRADUZIONE SCENARIO")
         print("\n")
-        print("ONTOLOGIA CON SCENARIO E QUERY")
+        print("ONTOLOGIA CON SCENARIO E SINTOMI")
         print("=================================")
         ontology_manager_support.show_classes_iri()
         ontology_manager_support.show_members_in_classes()
         print("=================================")
-        print("FINE ONTOLOGIA CON SCENARIO E QUERY")
+        print("FINE ONTOLOGIA CON SCENARIO E SINTOMI")
         print("\n")
         if __query_hermit(ontology_manager_support) != "The ontology is consistent":
             print("=====================")
@@ -94,17 +94,19 @@ def __read_query(ontology_manager):
 def __read_symptoms(ontology_manager):
     file_object = open("PatientSetOfSymptoms.txt", "r")
     line = file_object.readline().rstrip("\n")
-    couple_member_class = line.split(";")
-    test: bool = couple_member_class[1].startswith("Not")
-    couple_member_class[1] = couple_member_class[1].replace("Not", "", 1).replace("(", "").replace(")", "")
-    class_c = ontology_manager.create_class(couple_member_class[1])
-    not_class_c = ontology_manager.create_class("Not(" + couple_member_class[1] + ")")
-    class_c.equivalent_to = [Not(not_class_c)]
-    if not test:
-        print("Sintomo aggiunto: " + couple_member_class[0] + " " + class_c.name)
-        ontology_manager.add_member_to_class(couple_member_class[0], class_c, True)
-    else:
-        print("Sintomo aggiunto: " + couple_member_class[0] + " " + not_class_c.name)
-        ontology_manager.add_member_to_class(couple_member_class[0], not_class_c, True)
+    list_couple_patient_class = line.split(" | ")
+    for couple in list_couple_patient_class:
+        couple_member_class = couple.split(";")
+        test: bool = couple_member_class[1].startswith("Not")
+        couple_member_class[1] = couple_member_class[1].replace("Not", "", 1).replace("(", "").replace(")", "")
+        class_c = ontology_manager.create_class(couple_member_class[1])
+        not_class_c = ontology_manager.create_class("Not(" + couple_member_class[1] + ")")
+        class_c.equivalent_to = [Not(not_class_c)]
+        if not test:
+            print("Sintomo aggiunto: " + couple_member_class[0] + " " + class_c.name)
+            ontology_manager.add_member_to_class(couple_member_class[0], class_c, True)
+        else:
+            print("Sintomo aggiunto: " + couple_member_class[0] + " " + not_class_c.name)
+            ontology_manager.add_member_to_class(couple_member_class[0], not_class_c, True)
     file_object.close()
 

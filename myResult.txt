@@ -1,0 +1,6 @@
+Lista degli scenari:
+Lista membri tipici: Bipolar | Greg | 0.7 | 0 |  probabilita': 0.364
+Lista membri tipici: ProstateCancerPatient | Greg | 0.48 | 1 |  probabilita': 0.14400000000000002
+Lista membri tipici: Bipolar | Greg | 0.7 | 0 | ProstateCancerPatient | Greg | 0.48 | 1 |  probabilita': 0.33599999999999997
+Probabilità complessiva:
+0.844

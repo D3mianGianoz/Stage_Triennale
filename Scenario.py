@@ -12,8 +12,14 @@ class Scenario:
         self.probability = probability
 
     def __str__(self):
-        result: str
+        result: str = ""
         for member in self.list_of_typical_members:
-            result += member.__str__
-        return "Lista membri: " + result + " | probabilità: " + self.probability
+            result += member.__str__()
+        return "Lista membri tipici: " + result + "probabilita': " + str(self.probability) 
+
+    def __repr__(self):
+        result: str = ""
+        for member in self.list_of_typical_members:
+            result += member.__str__() + "\n"
+        return "Lista membri tipici: " + result + "probabilita': " + str(self.probability)
 

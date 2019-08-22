@@ -33,3 +33,19 @@ class QueryResult:
             num_scenario = num_scenario + 1
         print("PROBABILITA' TOTALE: " + str(self.probability))
 
+    def save_query_result(self):
+        print("Vuoi salvare i risultati in un file ? Y/N")
+        wannaStore = input()
+        if wannaStore.upper() == "Y":
+            f = open("myResult.txt", "w")
+            f.write("Lista degli scenari:\n")
+            for scenario in self.list_of_logical_consequent_scenarios:
+                f.write(scenario.__str__() + "\n")
+            f.write("Probabilità complessiva:\n")
+            f.write(str(self.probability))
+            f.flush()
+            f.close()
+            print("Operazione eseguita con successo, fine esecuzione")
+        else:
+            print("Risultati NON salvati, fine esecuzione")
+

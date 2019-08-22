@@ -1,5 +1,5 @@
 from TypicalMember import *
-from itertools import *
+from itertools import combinations,chain
 from Scenario import *
 
 '''
@@ -47,8 +47,7 @@ def compute_probability_for_typical_members(onto_manager):
 def __set_probability(probability_to_assign_to_typical_member, ontology_manager, t_class_identifier , class_id):
     for aboxMember in ontology_manager.a_box_members_list:
         if aboxMember.isSymptom is True and aboxMember.class_identifier.name == class_id.name:
-            print("Abox M class ID: ", aboxMember.class_identifier.name, " name", aboxMember.member_name, "prob",
-                  probability_to_assign_to_typical_member)
+            #print("Abox M class ID: ", aboxMember.class_identifier.name, " name", aboxMember.member_name, "prob", probability_to_assign_to_typical_member)
             ontology_manager.typical_members_list.append(TypicalMember(
                     t_class_identifier,
                     aboxMember.member_name,
