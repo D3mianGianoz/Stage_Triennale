@@ -71,13 +71,6 @@ def build_ontology(onto_manager: OntologyManager):
     file_object.close()
 
 
-def some_method(onto_manager: OntologyManager):
-    if onto_manager.consistency(True) == "The ontology is consistent":
-        print("Tutto bene")
-    else:
-        print("Inconsistenza nell'ontologia")
-    onto_manager.save_base_world()
-
 
 if __name__ == '__main__':
     # Inizio simulazione

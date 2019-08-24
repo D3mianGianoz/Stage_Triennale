@@ -8,6 +8,8 @@
 
 <owl:Ontology rdf:about="http://www.example.org/onto.owl"/>
 
+<owl:ObjectProperty rdf:about="#r1"/>
+
 <owl:Class rdf:about="#Bipolar">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:subClassOf rdf:resource="#Depressed"/>
@@ -32,12 +34,6 @@
 <owl:Class rdf:about="#Smart">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
-
-<Depressed rdf:about="#Greg">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <rdf:type rdf:resource="#Smart"/>
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</Depressed>
 
 <owl:Class rdf:about="#Not(MoodReactivity)">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -71,8 +67,8 @@
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:subClassOf rdf:resource="#Not(MoodReactivity)"/>
   <rdfs:subClassOf rdf:resource="#Smart"/>
-  <rdfs:subClassOf rdf:resource="#Depressed"/>
   <rdfs:subClassOf rdf:resource="#Depressed1"/>
+  <rdfs:subClassOf rdf:resource="#Depressed"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
@@ -82,8 +78,6 @@
     </owl:Class>
   </owl:equivalentClass>
 </owl:Class>
-
-<owl:ObjectProperty rdf:about="#r1"/>
 
 <owl:Class rdf:about="#NotDepressed1">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -176,8 +170,8 @@
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:subClassOf rdf:resource="#MoodReactivity"/>
   <rdfs:subClassOf rdf:resource="#Nocturia"/>
-  <rdfs:subClassOf rdf:resource="#ProstateCancerPatient"/>
   <rdfs:subClassOf rdf:resource="#ProstateCancerPatient1"/>
+  <rdfs:subClassOf rdf:resource="#ProstateCancerPatient"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
@@ -204,6 +198,12 @@
     </owl:Restriction>
   </rdfs:subClassOf>
 </owl:Class>
+
+<Depressed rdf:about="#Greg">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Smart"/>
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</Depressed>
 
 
 </rdf:RDF>

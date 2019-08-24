@@ -3,12 +3,21 @@ import types
 import os
 from TypicalFact import *
 from AboxMember import *
+from sqlite3 import connect
 
-PATH_DB = os.path.dirname(__file__) + "/mixed_util/backend.sqlite3"
+
 
 '''
 Classe che rappresenta l'ontologia, fornisce vari metodi per gestirla.
+
+        if iri != "http://www.example.org/onto.owl":
+            self.onto = self.my_world.get_ontology(iri)
+        else:
+            self.onto = self.my_world.get_ontology("http://www.example.org/onto.owl")
 '''
+
+PATH_DB = os.path.dirname(__file__) + "/.idea/backend.sqlite3"
+# Serve per l'ontologia di supporto
 
 class OntologyManager:
     def __init__(self, iri="http://www.example.org/onto.owl"):
@@ -17,8 +26,9 @@ class OntologyManager:
         self.typical_members_list = list()
         self.scenarios_list = list()
         self.my_world = World()
-        self.my_world.set_backend(filename=PATH_DB, exclusive=True)
+        #self.my_world.set_backend(filename=PATH_DB, exclusive=True)
         self.big_world = World()
+        self.big_world.set_backend(filename=PATH_DB, exclusive=False)
         self.onto = self.my_world.get_ontology(iri)
 
     def create_complementary_class(self, class_identifier):
@@ -154,23 +164,27 @@ class OntologyManager:
 
     def save_base_world(self):
         self.onto.save("onto.owl")
-        self.my_world.save()
-        self.my_world.close()
+        self.onto.destroy()
+        #self.my_world.save()
+        #self.my_world.close()
 
     def create_new_world(self):
-        self.big_world = World(filename=PATH_DB)
-        self.onto = self.big_world.get_ontology("file://"+ os.path.dirname(__file__) + "/onto.owl").load(True,None,True)
+        self.big_world = World()
+        self.onto = self.big_world.get_ontology("file://"+ os.path.dirname(__file__) + "//onto.owl").load(True,None,True)
 
     def close_new_world(self):
-        self.big_world.close()
+        self.onto.destroy()
+        self.big_world.save()
+        self.big_world.graph.commit()
+        connect(PATH_DB).close()
+        #self.big_world.close()
 
-    @staticmethod
-    def destroy_backend_db():
+    def destroy_backend_db(self):
         if os.path.exists(PATH_DB):
+            self.big_world.close()
             os.remove(PATH_DB)
         else:
             print("The file does not exist")
-
 
         # original in __init_
 '''
@@ -178,4 +192,3 @@ if iri != "http://www.example.org/onto.owl":
     self.big_world = World(filename=PATH_PROJECT)
     self.onto = self.big_world.get_ontology("http://www.example.org/onto.owl")
 '''
-
