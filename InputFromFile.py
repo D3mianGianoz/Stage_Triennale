@@ -80,15 +80,3 @@ def build_ontology(onto_manager: OntologyManager):
                         onto_manager.add_typical_fact(onto_manager.get_class(splitted_fact[0]),
                                                       onto_manager.get_class(splitted_fact[1]))
     file_object.close()
-
-
-if __name__ == '__main__':
-    ontology_manager = OntologyManager()
-    build_ontology(ontology_manager)
-    IncreasedOntology.compute_probability_for_typical_members(ontology_manager)
-    IncreasedOntology.set_probability_for_each_scenario(
-        IncreasedOntology.generate_scenarios(ontology_manager),
-        ontology_manager)
-    ontology_manager.show_scenarios()
-    query_result = ReasoningOnScenarios.is_logical_consequence(ontology_manager)
-    query_result.show_query_result()
