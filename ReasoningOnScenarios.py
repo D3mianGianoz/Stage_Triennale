@@ -72,6 +72,8 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
     query_result.probability = total_probability
     return query_result
 
+# TODO decide se rimuovere o meno questo metodo
+
 
 def __read_query(ontology_manager):
     file_object = open("QueryInput", "r")
@@ -83,18 +85,21 @@ def __read_query(ontology_manager):
     not_class_c = ontology_manager.create_class("Not(" + couple_member_class[1] + ")")
     class_c.equivalent_to = [Not(not_class_c)]
     if test:
-        print("Query aggiunta: " + couple_member_class[0] + " " + ontology_manager.get_class(couple_member_class[1]).name)
-        ontology_manager.add_member_to_class(couple_member_class[0], class_c, False)
+        print(
+            "Query aggiunta: " + couple_member_class[0] + " " + ontology_manager.get_class(couple_member_class[1]).name)
+        ontology_manager.add_member_to_class(couple_member_class[0], class_c)
     else:
-        print("Query aggiunta: " + couple_member_class[0] + " " + ontology_manager.get_class("Not(" + couple_member_class[1] + ")").name)
-        ontology_manager.add_member_to_class(couple_member_class[0], not_class_c, False)
+        print("Query aggiunta: " + couple_member_class[0] + " " + ontology_manager.get_class(
+            "Not(" + couple_member_class[1] + ")").name)
+        ontology_manager.add_member_to_class(couple_member_class[0], not_class_c)
     file_object.close()
 
 
-def __read_symptoms(ontology_manager):
+def __read_symptoms(ontology_manager, result: bool = False):
     file_object = open("PatientSetOfSymptoms.txt", "r")
     line = file_object.readline().rstrip("\n")
     list_couple_patient_class = line.split(" | ")
+    symptoms_for_plot: str = ""
     for couple in list_couple_patient_class:
         couple_member_class = couple.split(";")
         test: bool = couple_member_class[1].startswith("Not")
@@ -102,11 +107,16 @@ def __read_symptoms(ontology_manager):
         class_c = ontology_manager.create_class(couple_member_class[1])
         not_class_c = ontology_manager.create_class("Not(" + couple_member_class[1] + ")")
         class_c.equivalent_to = [Not(not_class_c)]
+        print_msg: str = "Sintomo aggiunto: " + couple_member_class[0]
+        patient: str
         if not test:
-            print("Sintomo aggiunto: " + couple_member_class[0] + " " + class_c.name)
-            ontology_manager.add_member_to_class(couple_member_class[0], class_c, True)
+            patient = class_c.name
+            ontology_manager.add_member_to_class(couple_member_class[0], class_c, symp=True)
         else:
-            print("Sintomo aggiunto: " + couple_member_class[0] + " " + not_class_c.name)
-            ontology_manager.add_member_to_class(couple_member_class[0], not_class_c, True)
+            patient = not_class_c.name
+            ontology_manager.add_member_to_class(couple_member_class[0], not_class_c, symp=True)
+        print(print_msg + " " + patient)
+        symptoms_for_plot += "#" + patient + " "
     file_object.close()
 
+    if result: return symptoms_for_plot

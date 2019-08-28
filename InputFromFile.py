@@ -30,12 +30,13 @@ def build_ontology(onto_manager: OntologyManager):
                     onto_manager.create_class(class_name)
         if line[:-1] == "Set_as_sub_class:":
             line = file_object.readline().rstrip("\n")
-            sub_class_list = line.split()
-            for classes_couple in sub_class_list:
-                split_classes_couple = classes_couple.split(",")
-                sub_class = onto_manager.get_class(split_classes_couple[0])
-                super_class = onto_manager.get_class(split_classes_couple[1])
-                onto_manager.add_sub_class(sub_class, super_class)
+            if line is not "":
+                sub_class_list = line.split()
+                for classes_couple in sub_class_list:
+                    split_classes_couple = classes_couple.split(",")
+                    sub_class = onto_manager.get_class(split_classes_couple[0])
+                    super_class = onto_manager.get_class(split_classes_couple[1])
+                    onto_manager.add_sub_class(sub_class, super_class)
         if line[:-1] == "Add_members_to_class:":
             line = file_object.readline().rstrip("\n")
             list_couple_member_classes = line.split(" | ")
@@ -44,11 +45,11 @@ def build_ontology(onto_manager: OntologyManager):
                 member_name = couple_splitted[0]
                 classes = couple_splitted[1].split(",")
                 member_identifier = onto_manager.add_member_to_class(member_name,
-                                                                     onto_manager.get_class(classes[0]), False)
+                                                                     onto_manager.get_class(classes[0]))
                 i = 1
                 while i < len(classes):
                     onto_manager.add_member_to_multiple_classes(member_identifier,
-                                                                [onto_manager.get_class(classes[i])], False)
+                                                                [onto_manager.get_class(classes[i])])
                     i += 1
         if line[:-1] == "Set_typical_facts:":
             fact_list: list = file_object.read().splitlines()

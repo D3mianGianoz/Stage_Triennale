@@ -9,7 +9,6 @@ Classe che rappresenta l'ontologia, fornisce vari metodi per gestirla.
 '''
 
 # Serve per l'ontologia di supporto
-
 class OntologyManager:
     def __init__(self, iri="http://www.example.org/onto.owl"):
         self.typical_facts_list = list()
@@ -116,11 +115,11 @@ class OntologyManager:
             print(member_name + " is_a " + t_class_identifier_1.name)
             print(member_name + " is_a " + t_class_intersection.name)
 
-    def add_member_to_class(self, member_name, class_identifier, symp: bool):
+    def add_member_to_class(self, member_name, class_identifier, symp: bool = False):
         self.a_box_members_list.append(AboxMember(class_identifier, member_name, symp))
         return class_identifier(member_name)
 
-    def add_member_to_multiple_classes(self, member_identifier, class_list, symp):
+    def add_member_to_multiple_classes(self, member_identifier, class_list, symp: bool = False):
         for c in class_list:
             member_identifier.is_a.append(c)
             self.a_box_members_list.append(AboxMember(c, member_identifier.name, symp))

@@ -15,5 +15,3 @@ class TypicalMember:
 
     def __str__(self):
         return self.t_class_identifier.name + " | " + self.member_name + " | " + str(self.probability) + " | " + str(self.key) + " | "
-
-

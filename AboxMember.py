@@ -3,7 +3,7 @@ Classe che rappresenta l'Abox dell'ontologia.
 '''
 class AboxMember:
 
-    def __init__(self, class_identifier, member_name, symp: bool):
+    def __init__(self, class_identifier, member_name, symp: bool = False):
         self.class_identifier = class_identifier
         self.member_name = member_name
         self.isSymptom = symp
