@@ -24,16 +24,6 @@ def __translate_scenario(scenario, ontology_manager):
 def __query_hermit(ontology_manager):
     return ontology_manager.consistency()
 
-# 1. Viene creata una copia dell’ontologia (righe [34;36]).
-# 2. Alla copia viene aggiunta la query e lo scenario corrente (righe [51;58]).
-# 3. Si verifica la conseguenzialità logica del fatto F (righe [69;78]).
-# 4. Si salva lo scenario appena aggiunto, se viene verificata la conseguenzialità
-#    logica (riga 79), in un oggetto di tipo QueryResult.
-# 5. Viene accumulata la probabilità totale dell’interrogazione data dalla somma
-#    delle probabilità degli scenari salvati (riga 80).
-# 6. Viene distrutta la copia dell’ontologia (riga 81).
-# 7. All’uscita del ciclo viene salvata la probabilità totale accumulata nell’oggetto
-#    di tipo QueryResult
 
 def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_probability_bound=1):
     query_result = QueryResult()
@@ -84,7 +74,6 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
             print("=====================")
             query_result.list_of_logical_consequent_scenarios.append(scenario)
             total_probability = total_probability + scenario.probability
-        ontology_manager.close_new_world()
     query_result.probability = total_probability
     return query_result
 
@@ -101,8 +90,7 @@ def __read_query(ontology_manager):
     not_class_c = ontology_manager.create_class("Not(" + couple_member_class[1] + ")")
     class_c.equivalent_to = [Not(not_class_c)]
     if test:
-        print(
-            "Query aggiunta: " + couple_member_class[0] + " " + ontology_manager.get_class(couple_member_class[1]).name)
+        print("Query aggiunta: " + couple_member_class[0] + " " + ontology_manager.get_class(couple_member_class[1]).name)
         ontology_manager.add_member_to_class(couple_member_class[0], class_c)
     else:
         print("Query aggiunta: " + couple_member_class[0] + " " + ontology_manager.get_class(

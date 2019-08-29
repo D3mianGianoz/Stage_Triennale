@@ -136,7 +136,7 @@ class OntologyManager:
                 else:
                     sync_reasoner(self.big_world)
                 return "The ontology is consistent"
-        except:
+        except OwlReadyInconsistentOntologyError:
             return "The ontology is inconsistent"
 
     def show_classes_iri(self):
