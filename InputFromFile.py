@@ -1,3 +1,7 @@
+from typing import Any, Union
+
+from owlready2 import Not
+
 import IncreasedOntology
 import ReasoningOnScenarios
 from OntologyManager import *
@@ -16,15 +20,23 @@ def build_ontology(onto_manager: OntologyManager):
             line = file_object.readline().rstrip("\n")
             class_names_list = line.split()
             for class_name in class_names_list:
-                onto_manager.create_class(class_name)
+                if class_name.startswith("Not"):
+                    class_name = class_name.replace("Not", "", 1).replace("(", "").replace(")", "")
+                    onto_manager.create_class(class_name)
+                    test = onto_manager.create_class("Not("+class_name+")")
+                    test.equivalent_to = [
+                        onto_manager.create_complementary_class(onto_manager.get_class(class_name))]
+                else:
+                    onto_manager.create_class(class_name)
         if line[:-1] == "Set_as_sub_class:":
             line = file_object.readline().rstrip("\n")
-            sub_class_list = line.split()
-            for classes_couple in sub_class_list:
-                split_classes_couple = classes_couple.split(",")
-                sub_class = onto_manager.get_class(split_classes_couple[0])
-                super_class = onto_manager.get_class(split_classes_couple[1])
-                onto_manager.add_sub_class(sub_class, super_class)
+            if line is not "":
+                sub_class_list = line.split()
+                for classes_couple in sub_class_list:
+                    split_classes_couple = classes_couple.split(",")
+                    sub_class = onto_manager.get_class(split_classes_couple[0])
+                    super_class = onto_manager.get_class(split_classes_couple[1])
+                    onto_manager.add_sub_class(sub_class, super_class)
         if line[:-1] == "Add_members_to_class:":
             line = file_object.readline().rstrip("\n")
             list_couple_member_classes = line.split(" | ")
@@ -70,22 +82,3 @@ def build_ontology(onto_manager: OntologyManager):
                                                       onto_manager.get_class(splitted_fact[1]))
     onto_manager.save_base_world()
     file_object.close()
-
-
-if __name__ == '__main__':
-    # Inizio simulazione
-    t = time.time()
-
-    ontology_manager = OntologyManager()
-    build_ontology(ontology_manager)
-    IncreasedOntology.compute_probability_for_typical_members(ontology_manager)
-    IncreasedOntology.set_probability_for_each_scenario(
-        IncreasedOntology.generate_scenarios(ontology_manager),
-        ontology_manager)
-    ontology_manager.show_scenarios()
-    query_result = ReasoningOnScenarios.is_logical_consequence(ontology_manager)
-    query_result.show_query_result()
-
-    # Fine simulazione
-    t = time.time() - t
-    print("\nFine simulazione, tempo totale: ", float(t), " s")
