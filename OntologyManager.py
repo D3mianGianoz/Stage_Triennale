@@ -1,14 +1,19 @@
-from owlready2 import *
+from owlready2 import World, Not, Thing, ObjectProperty, sync_reasoner, OwlReadyInconsistentOntologyError, AllDisjoint, destroy_entity
 import types
-from TypicalFact import *
-from AboxMember import *
- # owlready2.JAVA_EXE = "C:\\Program Files\\Java\\jdk-11.0.2\\bin\\java.exe"
+import os
+from TypicalFact import TypicalFact
+from AboxMember import AboxMember
+
+# owlready2.JAVA_EXE = "C:\\Program Files\\Java\\jdk-11.0.2\\bin\\java.exe"
+
+PATH_TO_ONTO = os.path.dirname(__file__)
 
 '''
-Classe che rappresenta l'ontologia, fornisce vari metodi per gestirla.
+Classe che contiene l'ontologia, fornisce vari metodi per gestirla.
+Utilizza il concetto di "mondo indipendente" per ottimizzare le operazioni
 '''
 
-# Serve per l'ontologia di supporto
+
 class OntologyManager:
     def __init__(self, iri="http://www.example.org/onto.owl"):
         self.typical_facts_list = list()
@@ -16,10 +21,8 @@ class OntologyManager:
         self.typical_members_list = list()
         self.scenarios_list = list()
         self.my_world = World()
-        if iri != "http://www.example.org/onto.owl":
-            self.onto = self.my_world.get_ontology(iri)
-        else:
-            self.onto = self.my_world.get_ontology("http://www.example.org/onto.owl")
+        self.big_world = World()
+        self.onto = self.my_world.get_ontology(iri)
 
     def create_complementary_class(self, class_identifier):
         with self.onto:
@@ -39,10 +42,6 @@ class OntologyManager:
             new_property = types.new_class(property_name, (ObjectProperty,))
         return new_property
 
-    @staticmethod
-    def destroy_class(class_identifier):
-        destroy_entity(class_identifier)
-
     def add_sub_class(self, sub_class_identifier, super_class_identifier):
         with self.onto:
             sub_class_identifier.is_a.append(super_class_identifier)
@@ -55,7 +54,8 @@ class OntologyManager:
     def add_typical_fact(self, t_class_identifier, class_identifier, probability="No probability"):
         with self.onto:
             t_class_identifier_1 = self.create_class(t_class_identifier.name + "1")
-            t_class_intersection = self.create_class("Intersection"+t_class_identifier.name+t_class_identifier_1.name)
+            t_class_intersection = self.create_class(
+                "Intersection" + t_class_identifier.name + t_class_identifier_1.name)
             t_class_intersection.equivalent_to = [t_class_identifier & t_class_identifier_1]
             self.add_sub_class(t_class_intersection, class_identifier)
 
@@ -97,10 +97,6 @@ class OntologyManager:
             print(record)
         print("FINE SCENARIO")
 
-    @staticmethod
-    def set_classes_as_disjoint(classes_identifier_list):
-        AllDisjoint(classes_identifier_list)
-
     # C e C1
     # Interesezione serve per esplicitare il concetto della doppia appartenenza
 
@@ -109,7 +105,7 @@ class OntologyManager:
             print("Membro tipico:")
             t_class_identifier(member_name)
             t_class_identifier_1(member_name)
-            t_class_intersection = self.get_class("Intersection"+t_class_identifier.name + t_class_identifier_1.name)
+            t_class_intersection = self.get_class("Intersection" + t_class_identifier.name + t_class_identifier_1.name)
             t_class_intersection(member_name)
             print(member_name + " is_a " + t_class_identifier.name)
             print(member_name + " is_a " + t_class_identifier_1.name)
@@ -132,22 +128,40 @@ class OntologyManager:
     def get_class(self, class_name):
         return self.onto[class_name]
 
-    def is_consistent(self):
-        return self.consistency()
-
-    def consistency(self):
+    def consistency(self, condition: bool = False):
         try:
             with self.onto:
-                sync_reasoner(self.my_world)
+                if condition:
+                    sync_reasoner(self.my_world)
+                else:
+                    sync_reasoner(self.big_world)
                 return "The ontology is consistent"
         except OwlReadyInconsistentOntologyError:
             return "The ontology is inconsistent"
 
     def show_classes_iri(self):
-        for c in self.my_world.classes():
+        for c in self.big_world.classes():
             print(str(c.name) + " is_a " + str(c.is_a))
 
     def show_members_in_classes(self):
-        for c in self.my_world.classes():
+        for c in self.big_world.classes():
             for m in c.instances():
                 print(m.name + " is_a " + c.name)
+
+    def save_base_world(self):
+        self.onto.save("ontoBase.owl")
+        self.onto.destroy()
+
+    def create_new_world(self):
+        self.big_world = World()
+        self.onto = self.big_world.get_ontology(
+            "file://" + PATH_TO_ONTO + "//ontoBase.owl").load(True, None, True)
+
+    # TODO Metodi mai utilizzati decidere cosa farne
+    @staticmethod
+    def destroy_class(class_identifier):
+        destroy_entity(class_identifier)
+
+    @staticmethod
+    def set_classes_as_disjoint(classes_identifier_list):
+        AllDisjoint(classes_identifier_list)

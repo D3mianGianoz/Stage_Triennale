@@ -5,6 +5,10 @@ from InputFromFile import build_ontology
 from OntologyManager import OntologyManager
 from time import time
 
+'''
+Modulo principale da cui parte lo strumento
+'''
+
 
 def entailed_knowledge():
     print("========== {:s} ==========".format("Adding a set of Symptoms to the KB"))

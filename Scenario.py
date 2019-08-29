@@ -1,5 +1,6 @@
 """
 Classe che rappresenta lo scenario da aggiungere all'ontologia per l'interrogazione
+Ha due parametri, la lista dei membri tipici e la probabilità complessiva dello scenario
 """
 
 

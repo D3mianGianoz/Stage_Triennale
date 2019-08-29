@@ -1,5 +1,6 @@
 """
 Classe che assieme alla classe TypicalFact costituisce la Tbox dell'ontologia
+Caratterizzata da Id classe "Tipica", nome del paziente, probabilità che D sia un membro tipico
 """
 
 

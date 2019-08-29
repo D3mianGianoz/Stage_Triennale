@@ -3,7 +3,7 @@ from plotly.subplots import make_subplots
 
 """
 Classe che rappresenta i risultati dell'interrogazione dell'ontologia
-Anche in maniera grafica con l'utilizzo di plotly
+Generando anche un grafico interattivo con l'utilizzo di plotly
 """
 
 

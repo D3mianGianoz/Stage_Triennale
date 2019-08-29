@@ -1,5 +1,6 @@
 """
 Classe che assieme alla classe TypicalMember costituisce la Tbox dell'ontologia
+Caratterizzata da Id classe "Tipica", id classe collegata (sintomo o malattia), probabilità che D sia un membro tipico
 """
 
 

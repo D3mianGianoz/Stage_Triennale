@@ -115,3 +115,6 @@ dmypy.json
 
 # PyCharm - Intellij
 .idea/
+
+#Base ontology
+/ontoBase.owl

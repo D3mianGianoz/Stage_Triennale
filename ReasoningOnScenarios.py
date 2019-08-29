@@ -1,10 +1,9 @@
-from OntologyManager import *
-from QueryResult import *
-import InputFromFile
+from OntologyManager import Not
+from QueryResult import QueryResult
 
 '''
-Questo modulo è composto da una serie di metodi che permettono di ragionare sugli scenari generati verificando se la 
-query in input segue logicamente dalla base di conoscenza con l'aggiunta dello scenario corrente.
+Questo modulo è composto da una serie di metodi che permettono di ragionare sugli scenari generati verificando se il/i 
+sintomo/i in input segue/seguono logicamente dalla base di conoscenza con l'aggiunta dello scenario corrente.
 '''
 
 
@@ -27,44 +26,43 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
     else:
         filtered_scenarios = ontology_manager.scenarios_list
     for scenario in filtered_scenarios:
-        ontology_manager_support = OntologyManager("http://test.org/onto.owl")
-        InputFromFile.build_ontology(ontology_manager_support)
+        ontology_manager.create_new_world()
         print("ONTOLOGIA PRIMA DELLA LETTURA DELLA QUERY")
         print("=================================")
-        ontology_manager_support.show_members_in_classes()
-        ontology_manager_support.show_classes_iri()
+        ontology_manager.show_members_in_classes()
+        ontology_manager.show_classes_iri()
         print("=================================")
         print("FINE ONTOLOGIA PRIMA DELLA LETTURA DELLA QUERY")
         print("\n")
         print("LETTURA SINTOMI")
         print("=================================")
-        __read_symptoms(ontology_manager_support)
+        __read_symptoms(ontology_manager)
         print("=================================")
         print("LETTURA SINTOMI TERMINATA")
         print("\n")
         print("TRADUCENDO LO SCENARIO: ")
         print("=================================")
-        OntologyManager.show_a_specific_scenario(scenario)
-        __translate_scenario(scenario, ontology_manager_support)
+        ontology_manager.show_a_specific_scenario(scenario)
+        __translate_scenario(scenario, ontology_manager)
         print("=================================")
         print("FINE TRADUZIONE SCENARIO")
         print("\n")
         print("ONTOLOGIA CON SCENARIO E SINTOMI")
         print("=================================")
-        ontology_manager_support.show_classes_iri()
-        ontology_manager_support.show_members_in_classes()
+        ontology_manager.show_classes_iri()
+        ontology_manager.show_members_in_classes()
         print("=================================")
         print("FINE ONTOLOGIA CON SCENARIO E SINTOMI")
         print("\n")
-        if __query_hermit(ontology_manager_support) != "The ontology is consistent":
+        if __query_hermit(ontology_manager) != "The ontology is consistent":
             print("=====================")
             print("Il fatto non segue logicamente nel seguente scenario: ")
-            OntologyManager.show_a_specific_scenario(scenario)
+            ontology_manager.show_a_specific_scenario(scenario)
             print("=====================")
         else:
             print("=====================")
             print("Il fatto segue logicamente nel seguente scenario: ")
-            OntologyManager.show_a_specific_scenario(scenario)
+            ontology_manager.show_a_specific_scenario(scenario)
             print("=====================")
             query_result.list_of_logical_consequent_scenarios.append(scenario)
             total_probability = total_probability + scenario.probability
