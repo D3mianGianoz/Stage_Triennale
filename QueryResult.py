@@ -37,27 +37,14 @@ class QueryResult:
             num_scenario = num_scenario + 1
         print("PROBABILITA' TOTALE: " + str(self.probability))
 
-    def save_query_result(self):
-        print("Vuoi salvare i risultati in un file ? Y/N")
-        wanna_store = input()
-        if wanna_store.upper() == "Y":
-            f = open("myResult.txt", "w")
-            f.write("Lista degli scenari:\n")
-            for scenario in self.list_of_logical_consequent_scenarios:
-                f.write(scenario.__str__() + "\n")
-            f.write("Probabilità complessiva:\n")
-            f.write(str(self.probability))
-            f.flush()
-            f.close()
-            print("Operazione eseguita con successo, fine esecuzione")
-        else:
-            print("Risultati NON salvati, fine esecuzione")
-
-    def create_and_show_plot(self, patient_symptoms: str):
+    def create_and_show_plot(self, patient_symptoms: str, disease_cost: dict):
         i: int = 1
         l: list = list()
+        cost = 0
         class_id_acc: str = ""
         scatter_x = []
+        scatter_y = []
+        # TODO Remove this y=[1000, 6000, 3000, 4000, 20000, 5000, 900, 2000, 9000, 8000]
 
         # Create figure with secondary y-axis
         fig = make_subplots(specs=[[{"secondary_y": True}]])
@@ -66,6 +53,7 @@ class QueryResult:
             # Non ho gestito lo scenario vuoto
             for tm in scen.list_of_typical_members:
                 class_id_acc += tm.t_class_identifier.name + "; "
+                cost += disease_cost.get(tm.t_class_identifier.name)
             l.append(go.Bar(
                 x=[i],
                 y=[scen.probability * 100],
@@ -76,14 +64,16 @@ class QueryResult:
             l[i-1].marker.line.width = 2
             l[i-1].marker.line.color = "black"
             scatter_x.append(i)
+            scatter_y.append(cost)
             i += 1
             class_id_acc = ""
+            cost = 0
 
         fig.add_traces(l)
 
         trace2 = go.Scatter(
             x=scatter_x,
-            y=[1000, 6000, 3000, 4000, 20000, 5000, 900, 2000, 9000, 8000],
+            y=scatter_y,
             name="Cost of",
         )
 
@@ -127,4 +117,16 @@ class QueryResult:
             hovermode="x"
         )
         fig.show()
-        #fig.write_html("first_plot.html")
+        return fig
+
+    def save_query_result(self, fig: go.Figure, name=None):
+        print("Vuoi salvare i risultati in un file ? Y/N")
+        wanna_store = input()
+        if wanna_store.upper() == "Y":
+            if name is not None:
+                fig.write_html(name + ".html")
+            else:
+                fig.write_html("plot.html")
+            print("Operazione eseguita con successo, fine esecuzione")
+        else:
+            print("Risultati NON salvati, fine esecuzione")

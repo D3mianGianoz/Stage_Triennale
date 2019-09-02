@@ -17,3 +17,9 @@ Typical(Obese),ColonCancerPatient,0.50
 Typical(Obese),Stressed,0.70
 Typical(Depressed),Insomnia,0.80
 Typical(Depressed),Headache,0.65
+$$$
+Set_cost_of:
+AlzheimerPatient: 5000
+DiabetesPatient: 2000
+Obese: 1000
+Depressed: 3000

@@ -14,9 +14,9 @@ def entailed_knowledge():
     print("========== {:s} ==========".format("Adding a set of Symptoms to the KB"))
     patient_sym = __read_symptoms(ontology_manager, result=True)
     print("========== {:s} ==========".format("Checking consistency"))
-    result = ontology_manager.consistency()
+    result = ontology_manager.consistency(condition=True)
     print("========== {:s} ==========".format(result))
-    if result.__eq__("The ontology is inconsistent"):
+    if result == "The ontology is inconsistent":
         print("+++++++++++++++ {:s} +++++++++++++++\n\n\n".format("The set of Symptoms is NOT consistent with the KB"))
         print("---- {:s} -----".format("Ending"))
         sys.exit(5)
@@ -36,12 +36,13 @@ if __name__ == '__main__':
         IncreasedOntology.generate_scenarios(ontology_manager),
         ontology_manager)
     ontology_manager.show_scenarios()
+
     query_result = is_logical_consequence(ontology_manager)
     query_result.show_query_result()
-    query_result.create_and_show_plot(sym)
+    plot = query_result.create_and_show_plot(sym, ontology_manager.cost_dict)
 
     t = time() - t
     print("\nFine simulazione, tempo totale: ", float(t), " s")
 
-    # query_result.save_query_result()
+    #query_result.save_query_result(plot)
 

@@ -52,8 +52,8 @@ def build_ontology(onto_manager: OntologyManager):
                                                                 [onto_manager.get_class(classes[i])])
                     i += 1
         if line[:-1] == "Set_typical_facts:":
-            fact_list: list = file_object.read().splitlines()
-            for fact in fact_list:
+            fact = file_object.readline().rstrip("\n")
+            while fact != "$$$\n":
                 splitted_fact = fact.split(",")
                 splitted_fact[0] = splitted_fact[0].replace("Typical", "", 1).replace("(", "").replace(")", "")
 
@@ -80,5 +80,14 @@ def build_ontology(onto_manager: OntologyManager):
                     else:
                         onto_manager.add_typical_fact(onto_manager.get_class(splitted_fact[0]),
                                                       onto_manager.get_class(splitted_fact[1]))
+                fact = file_object.readline()
+        if line[:-1] == "Set_cost_of:":
+            temp = dict()
+            cost_list: list = file_object.read().splitlines()
+            for cost in cost_list:
+                splitted = cost.split(": ")
+                temp[splitted[0]] = int(splitted[1])
+            # Salvo il dict
+            onto_manager.cost_dict = temp
     onto_manager.save_base_world()
     file_object.close()

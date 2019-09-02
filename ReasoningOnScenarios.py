@@ -44,7 +44,7 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
         print("\n")
         print("LETTURA SINTOMI")
         print("=================================")
-        __read_symptoms(ontology_manager)
+        __read_symptoms(ontology_manager, reasoning=True)
         print("=================================")
         print("LETTURA SINTOMI TERMINATA")
         print("\n")
@@ -62,7 +62,7 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
         print("=================================")
         print("FINE ONTOLOGIA CON SCENARIO E SINTOMI")
         print("\n")
-        if __query_hermit(ontology_manager) != "The ontology is consistent":
+        if __query_hermit(ontology_manager) == "The ontology is consistent":
             print("=====================")
             print("Il fatto non segue logicamente nel seguente scenario: ")
             ontology_manager.show_a_specific_scenario(scenario)
@@ -99,12 +99,13 @@ def __read_query(ontology_manager):
     file_object.close()
 
 
-def __read_symptoms(ontology_manager, result: bool = False):
+def __read_symptoms(ontology_manager, result: bool = False, reasoning: bool = False):
     file_object = open("PatientSetOfSymptoms.txt", "r")
     line = file_object.readline().rstrip("\n")
     list_couple_patient_class = line.split(" | ")
     symptoms_for_plot: str = ""
     for couple in list_couple_patient_class:
+        patient: str
         couple_member_class = couple.split(";")
         test: bool = couple_member_class[1].startswith("Not")
         couple_member_class[1] = couple_member_class[1].replace("Not", "", 1).replace("(", "").replace(")", "")
@@ -112,7 +113,7 @@ def __read_symptoms(ontology_manager, result: bool = False):
         not_class_c = ontology_manager.create_class("Not(" + couple_member_class[1] + ")")
         class_c.equivalent_to = [Not(not_class_c)]
         print_msg: str = "Sintomo aggiunto: " + couple_member_class[0]
-        patient: str
+        if reasoning: test = not test
         if not test:
             patient = class_c.name
             ontology_manager.add_member_to_class(couple_member_class[0], class_c, symp=True)

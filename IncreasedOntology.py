@@ -41,7 +41,7 @@ def compute_probability_for_typical_members(onto_manager):
 #      if aboxMember.class_identifier.name == t_class_identifier.name:
 
 
-def __set_probability(probability_to_assign_to_typical_member, ontology_manager, t_class_identifier , class_id):
+def __set_probability(probability_to_assign_to_typical_member, ontology_manager, t_class_identifier, class_id):
     for aboxMember in ontology_manager.a_box_members_list:
         if aboxMember.isSymptom is True and aboxMember.class_identifier.name == class_id.name:
             ontology_manager.typical_members_list.append(TypicalMember(

@@ -18,8 +18,9 @@ class OntologyManager:
     def __init__(self, iri="http://www.example.org/onto.owl"):
         self.typical_facts_list = list()
         self.a_box_members_list = list()
-        self.typical_members_list = list()
         self.scenarios_list = list()
+        self.typical_members_list = list()
+        self.cost_dict = dict()
         self.my_world = World()
         self.big_world = World()
         self.onto = self.my_world.get_ontology(iri)
@@ -146,7 +147,7 @@ class OntologyManager:
     def show_members_in_classes(self):
         for c in self.big_world.classes():
             for m in c.instances():
-                print(m.name + " is_a " + c.name)
+                print(m.name + " member_of " + c.name)
 
     def save_base_world(self):
         self.onto.save("ontoBase.owl")
@@ -156,6 +157,8 @@ class OntologyManager:
         self.big_world = World()
         self.onto = self.big_world.get_ontology(
             "file://" + PATH_TO_ONTO + "//ontoBase.owl").load(True, None, True)
+
+
 
     # TODO Metodi mai utilizzati decidere cosa farne
     @staticmethod
