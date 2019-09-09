@@ -77,27 +77,6 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
     query_result.probability = total_probability
     return query_result
 
-# TODO decide se rimuovere o meno questo metodo
-
-
-def __read_query(ontology_manager):
-    file_object = open("QueryInput", "r")
-    line = file_object.readline().rstrip("\n")
-    couple_member_class = line.split(";")
-    test: bool = couple_member_class[1].startswith("Not")
-    couple_member_class[1] = couple_member_class[1].replace("Not", "", 1).replace("(", "").replace(")", "")
-    class_c = ontology_manager.create_class(couple_member_class[1])
-    not_class_c = ontology_manager.create_class("Not(" + couple_member_class[1] + ")")
-    class_c.equivalent_to = [Not(not_class_c)]
-    if test:
-        print("Query aggiunta: " + couple_member_class[0] + " " + ontology_manager.get_class(couple_member_class[1]).name)
-        ontology_manager.add_member_to_class(couple_member_class[0], class_c)
-    else:
-        print("Query aggiunta: " + couple_member_class[0] + " " + ontology_manager.get_class(
-            "Not(" + couple_member_class[1] + ")").name)
-        ontology_manager.add_member_to_class(couple_member_class[0], not_class_c)
-    file_object.close()
-
 
 def __read_symptoms(ontology_manager, result: bool = False, reasoning: bool = False):
     file_object = open("PatientSetOfSymptoms.txt", "r")

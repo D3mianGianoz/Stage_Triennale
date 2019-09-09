@@ -14,7 +14,7 @@ ha il compito di costruire l'ontologia leggendo i dati forniti dal file
 
 
 def build_ontology(onto_manager: OntologyManager):
-    file_object = open("OntologyInput", "r")
+    file_object = open("OntologyInput.txt", "r")
     for line in file_object:
         if line[:-1] == "Classes:":
             line = file_object.readline().rstrip("\n")

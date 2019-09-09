@@ -44,5 +44,5 @@ if __name__ == '__main__':
     t = time() - t
     print("\nFine simulazione, tempo totale: ", float(t), " s")
 
-    #query_result.save_query_result(plot)
+    # query_result.save_query_result(plot)
 

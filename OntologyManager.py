@@ -94,7 +94,7 @@ class OntologyManager:
         else:
             for tm in scenario.list_of_typical_members:
                 record = record + tm.t_class_identifier.name + "," + tm.member_name + "," + str(tm.probability) + "; "
-            record = record + str(scenario.probability)
+            record = record + "\nProbabilità scenario: " + str(scenario.probability)
             print(record)
         print("FINE SCENARIO")
 
@@ -150,15 +150,15 @@ class OntologyManager:
                 print(m.name + " member_of " + c.name)
 
     def save_base_world(self):
-        self.onto.save("ontoBase.owl")
+        self.onto.save("ontoBase.owl", format="ntriples")
         self.onto.destroy()
 
     def create_new_world(self):
         self.big_world = World()
         self.onto = self.big_world.get_ontology(
-            "file://" + PATH_TO_ONTO + "//ontoBase.owl").load(True, None, True)
+            "file://" + PATH_TO_ONTO + "//ontoBase.owl").load()
 
-
+    # .load(True, None, True)
 
     # TODO Metodi mai utilizzati decidere cosa farne
     @staticmethod

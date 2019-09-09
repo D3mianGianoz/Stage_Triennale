@@ -44,7 +44,7 @@ class QueryResult:
         class_id_acc: str = ""
         scatter_x = []
         scatter_y = []
-        # TODO Remove this y=[1000, 6000, 3000, 4000, 20000, 5000, 900, 2000, 9000, 8000]
+        tot_prb_for = "{0:.2f}".format(self.probability * 100) + "%"
 
         # Create figure with secondary y-axis
         fig = make_subplots(specs=[[{"secondary_y": True}]])
@@ -57,7 +57,7 @@ class QueryResult:
             l.append(go.Bar(
                 x=[i],
                 y=[scen.probability * 100],
-                name="Hypotesis " + str(i),
+                name="Hypothesis " + str(i),
                 text=class_id_acc,
                 textposition="auto"
             ))
@@ -98,7 +98,7 @@ class QueryResult:
             ),
             yaxis=go.layout.YAxis(
                 title=go.layout.yaxis.Title(
-                    text="Probability",
+                    text="Probability: Max " + tot_prb_for,
                     font=dict(
                         family="Courier New, monospace",
                         size=18,
@@ -130,3 +130,5 @@ class QueryResult:
             print("Operazione eseguita con successo, fine esecuzione")
         else:
             print("Risultati NON salvati, fine esecuzione")
+
+        # TODO  se si usa la  guida https://github.com/plotly/orca  si puo usare: fig.write_image("plotDepression.pdf")
