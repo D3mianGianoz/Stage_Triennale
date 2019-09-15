@@ -1,0 +1,82 @@
+\section{Ambiente e metodologie di studio}
+%Introduzione alla storia
+%delineare il quadro generale
+
+La  ricerca  nel  settore  della  rappresentazione  della  conoscenza  si  concentra da sempre
+sulla possibilità di fornire descrizioni ad alto livello di fatti, gerarchie terminologiche
+e reti concettuali necessarie ad software ‘intelligenti’, ossia a quelle applicazioni
+in grado di ricavare conseguenze implicite (talvolta profonde o nascoste) di conoscenze 
+esplicitamente disponibili o facilmente accessibili. \par
+In tal senso le Logiche Descrittive si pongono come miglior risposta per questo di problema
+poiché riescono a coniugare in modo sapiente l'espressività ed efficienza: 
+man mano che gli studi e le sperimentazioni relative alle Logiche Descrittive progrediscono,
+le nostre conoscenze e capacità di classificare in modo sottile i vari frammenti dei
+linguaggi logici si fanno sempre più profonde ed adeguate alle esigenze dei vari ambiti applicativi.
+  
+Nel nostro caso, però, si trovano subito delle difficoltà, infatti si presuppone 
+la congiunzione di due requisiti contrastanti : il bisogno composizioni sintattiche 
+(tipiche dei sistemi logici), e la necessità dell'utilizzo della "tipicalitá".
+Uno dei limiti di queste logiche è che non sono in grado di rappresentare proprietà tipiche
+e di ragionare sull'eredità rivedibile \cite{ProbOfEx}.
+Richiamiamo dunque, in maniera informale, un classico esempio proveniente dalla letteratura: 
+immaginiamo di sapere che gli uccelli volano, ma che i pinguini siano volatili che non volano.
+Questa base di conoscenza sarebbe consistente solo se non ci fosse neppure un pinguino. 
+Per affrontare questo problema fin dai primi anni '90 sono state approfondite e studiate 
+numerose estensioni non monotone delle logiche descrittive.\par
+Il programma oggetto delle tesi si basa sulla $\mathcal {ALC}+\mathbf{T}_\mathbf{R}^{ \textsf {P} }\ $. 
+Questa, oltre ad avere complessità ExpTime-completa (come la sottostante $\mathcal {ALC}$), combina diverse componenti importanti:
+\begin{itemize} \label{itemize: 3 comp}
+	\item in primis la logica $\mathcal {ALC}+\mathbf{T}\ $ dove le proprietà tipiche possono 
+	direttamente essere descritte dall'operatore $\mathbf{T}$ di “tipicalità“, grazie a cui
+ è possibile esprimere che, per ogni concetto $\mathit{C},\mathbf{T}(\mathit{C})$ 
+ indica che le istanze di C sono considerate \textit{tipiche} o \textit{normali}.
+	Così una $\mathit{TBox}$ potrà contenere inclusioni della forma $\mathbf{T}(\mathit{C})\sqsubseteq \mathit{D}$ 
+	a rappresentare che “i tipici $\mathit{C}$ sono anche $\mathit{D}$. A differenza della 
+	maggior parte delle altre logiche descrittive questa ci permetterà quindi
+	di esprimere e ragionare sulle eccezioni mantenendo una consistenza della base di conoscenza.\cite{DLExtension};
+		
+	\item il secondo ingrediente necessario sarà una semantica distribuita, simile 
+	a quella che per le logiche descrittive probabilistiche, conosciuta come DISPONTE. 
+	L’idea è quindi quella di aggiungere un’etichetta alle inclusioni che indichi la probabilità 
+	di tale fenomeno, per poter esprimere quanto sia possibile che un evento eccezionale si verifichi.\par
+	Con questa estensione è possibile esprimere fatti del tipo: \par 
+	$ \mathbf{T}(\mathit{C})\sqsubseteq_{p} \mathit{D} $ ("abbiamo una probabilità p che un tipico C sia un D") \par 
+	direttamente nella base di conoscenza oppure inferire e/o dedurre fatti del tipo 
+	\par$ \mathit{p}:\mathbf{T}(\mathit{C})(\mathit{m})$ ("il membro m è un tipico C con una certa probabilità p").\cite{ProbOfEx};
+		
+	\item il terzo riguarda il rafforzamento della semantica trattato nell'articolo \cite{FromPLtoDL} 
+	dove gli autori hanno ristretto la consequenzialità logica ad una classe di
+	modelli minimi. L’idea intuitiva è quella di restringere la consequenzialità logica ai
+	modelli che minimizzano le istanze atipiche di un concetto. 
+	La logica risultante è $ \mathcal {ALC}+\mathbf{T}_\mathbf{R}^{ \mathit{RaCl}}$ la cui semantica vedremo meglio in seguito.
+\end{itemize}
+Se opportunamente uniti otteniamo proprio $\mathcal {ALC}+\mathbf{T}_\mathbf{R}^{ \textsf {P} }\ $ 
+che è caratterizzata dalla \textit{probabilità di eccezionalità} dalla forma:
+\[ \mathbf{T}(\mathit{C})\sqsubseteq_{p} \mathit{D} \]
+dove $ \mathit{p} \in (0,1) $ il cui significato intuitivo è:
+\begin{multline*}
+\text{"normalmente, gli elementi } \mathit{C}  \text{ sono } \mathit{D} \\
+\text{ e la probabilità di avere elementi } \mathit{C} 
+\text{ che non sono } \mathit{D} \text{ è } 1 -\mathit{p}."
+\end{multline*}
+Va comunque sottolineato al lettore che l'inclusione di tipicalità possa essere correttamente 
+interpretata anche come:
+\begin{equation*}
+	\text{"esistono certi tipici individui } \mathit{C} \text{ che non sono } \mathit{D}."
+\end{equation*}
+
+\section{Motivazioni del lavoro}
+Sul fatto che un calcolatore possa trattare i dati statistici e fare predizioni probabilistiche meglio di un essere umano non possono esserci dubbi:
+l’essere umano non è tanto portato per il ragionamento statistico, che in genere appare controintuitivo. 
+In questo senso DbN potrebbe diventare un aiuto diagnostico prezioso, uno strumento di consultazione del medico, più efficace di trattati e riviste, ma con il grande limite di essere disumanizzante. Infatti il dato rilevante alla diagnosi si raccoglie nel contesto del rapporto medico-paziente e il paziente non racconterebbe a DbN la sua anamnesi come la racconterebbe ad un medico di sua fiducia.\\ 
+Va sottolineato che è ancora uno strumento ultra-sperimentale, e non appartiene, per il momento, a
+una \textit{rete neurale}, quella schiera di “sistemi esperti” che migliorano il proprio funzionamento con l’uso e richiedono, quindi, lunghi periodi di apprendistato.
+
+L’aspetto più interessante è il contesto in cui andrebbe ad inserirsi: in effetti già esistono applicazioni per lo smartphone che dovrebbero aiutare il medico nelle decisioni o, almeno, fornirgli spunti di riflessione e di esercizio. Contrariamente supportare la diagnostica medica è un problema privo di regole esatte e, in fondo, di ampiezza non limitata che sembra molto al di là delle possibilità di una macchina, ma la presenza di grandi aziende, come \textbf{IMB} con \textbf{Watson}, ci fa chiedere per quanto tempo questo rimarrà così.
+
+L’ultimo aspetto da considerare è relativo ai costi: per ora DbN è un embrione, un piccolo prototipo e non è nemmeno immaginabile cosa costerebbe produrne e renderne disponibile un numero sufficiente a soddisfare tutte le possibili richieste di consulenza. D’altra parte la macchina ha delle potenzialità, e anche da sola può dare retta a diverse richieste, ma sicuramente necessita ulteriori sviluppi.
+Il vantaggio nell'uso di un consulente elettronico sarebbe molto grande, sia per l’accuratezza delle diagnosi e delle terapie, sia per le implicazioni medico-legali come elemento di buona prassi.
+
+
+
+

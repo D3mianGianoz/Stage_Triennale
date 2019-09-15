@@ -16,6 +16,7 @@ class QueryResult:
             probability = 2
         self.list_of_logical_consequent_scenarios = list_of_logical_consequent_scenarios
         self.probability = probability
+        self.fig = None
 
     def show_query_result(self):
         print("RISULTATI DELL'INTERROGAZIONE: ")
@@ -30,12 +31,12 @@ class QueryResult:
                 for tm in s.list_of_typical_members:
                     record = record + tm.t_class_identifier.name + "," + tm.member_name + "," \
                              + str(tm.probability) + "; "
-                record = record + "\nProbabilita complessiva dello scenario: " + str(s.probability)
+                record = record + "\nProbabilità complessiva dello scenario: " + str(s.probability)
                 print(record)
             print("FINE SCENARIO " + str(num_scenario))
             print("\n")
             num_scenario = num_scenario + 1
-        print("PROBABILITA' TOTALE: " + str(self.probability))
+        print("PROBABILITÀ TOTALE: " + str(self.probability))
 
     def create_and_show_plot(self, patient_symptoms: str, disease_cost: dict):
         i: int = 1
@@ -47,7 +48,7 @@ class QueryResult:
         tot_prb_for = "{0:.2f}".format(self.probability * 100) + "%"
 
         # Create figure with secondary y-axis
-        fig = make_subplots(specs=[[{"secondary_y": True}]])
+        self.fig = make_subplots(specs=[[{"secondary_y": True}]])
 
         for scen in self.list_of_logical_consequent_scenarios:
             # Non ho gestito lo scenario vuoto
@@ -69,7 +70,7 @@ class QueryResult:
             class_id_acc = ""
             cost = 0
 
-        fig.add_traces(l)
+        self.fig.add_traces(l)
 
         trace2 = go.Scatter(
             x=scatter_x,
@@ -77,10 +78,10 @@ class QueryResult:
             name="Cost of",
         )
 
-        fig.add_trace(trace2, secondary_y=True)
+        self.fig.add_trace(trace2, secondary_y=True)
 
         # Added titles and fonts
-        fig.update_layout(
+        self.fig.update_layout(
             title=go.layout.Title(
                 text="Result of Computation on Symptoms: " + patient_symptoms,
                 xref="paper",
@@ -116,17 +117,17 @@ class QueryResult:
             ),
             hovermode="x"
         )
-        fig.show()
-        return fig
+        self.fig.show()
 
-    def save_query_result(self, fig: go.Figure, name=None):
+    def save_query_result(self, name=None):
         print("Vuoi salvare i risultati in un file ? Y/N")
         wanna_store = input()
         if wanna_store.upper() == "Y":
             if name is not None:
-                fig.write_html(name + ".html")
+                # self.fig.write_html(name + ".html")
+                self.fig.write_image(name + ".png")
             else:
-                fig.write_html("plot.html")
+                self.fig.write_html("plot.html")
             print("Operazione eseguita con successo, fine esecuzione")
         else:
             print("Risultati NON salvati, fine esecuzione")

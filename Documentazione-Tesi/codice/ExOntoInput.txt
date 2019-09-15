@@ -1,0 +1,15 @@
+Classes:
+Bipolar Depressed MoodReactivity ProstateCancerPatient Nocturia
+Set_as_sub_class:
+Bipolar,Depressed
+Add_members_to_class:
+Greg;Depressed | Luca;ProstateCancerPatient
+....
+Set_typical_facts:
+Typical(ProstateCancerPatient),Nocturia,0.8
+Typical(Depressed),Not(MoodReactivity),0.85
+......
+$$$
+Set_cost_of:
+ProstateCancerPatient: 10000
+Depressed: 3000

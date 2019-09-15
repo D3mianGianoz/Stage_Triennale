@@ -1,4 +1,4 @@
-from OntologyManager import Not
+from InputFromFile import read_symptoms
 from QueryResult import QueryResult
 
 '''
@@ -21,10 +21,6 @@ def __translate_scenario(scenario, ontology_manager):
             tm.member_name, tm.t_class_identifier, ontology_manager.onto[tm.t_class_identifier.name + "1"])
 
 
-def __query_hermit(ontology_manager):
-    return ontology_manager.consistency()
-
-
 def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_probability_bound=1):
     query_result = QueryResult()
     total_probability = 0
@@ -44,7 +40,7 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
         print("\n")
         print("LETTURA SINTOMI")
         print("=================================")
-        __read_symptoms(ontology_manager, reasoning=True)
+        ontology_manager.add_symptoms_to_kb()
         print("=================================")
         print("LETTURA SINTOMI TERMINATA")
         print("\n")
@@ -62,7 +58,7 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
         print("=================================")
         print("FINE ONTOLOGIA CON SCENARIO E SINTOMI")
         print("\n")
-        if __query_hermit(ontology_manager) == "The ontology is consistent":
+        if ontology_manager.consistency() == "The ontology is consistent":
             print("=====================")
             print("Il fatto non segue logicamente nel seguente scenario: ")
             ontology_manager.show_a_specific_scenario(scenario)
@@ -76,31 +72,3 @@ def is_logical_consequence(ontology_manager, lower_probability_bound=0, higher_p
             total_probability = total_probability + scenario.probability
     query_result.probability = total_probability
     return query_result
-
-
-def __read_symptoms(ontology_manager, result: bool = False, reasoning: bool = False):
-    file_object = open("PatientSetOfSymptoms.txt", "r")
-    line = file_object.readline().rstrip("\n")
-    list_couple_patient_class = line.split(" | ")
-    symptoms_for_plot: str = ""
-    for couple in list_couple_patient_class:
-        patient: str
-        couple_member_class = couple.split(";")
-        test: bool = couple_member_class[1].startswith("Not")
-        couple_member_class[1] = couple_member_class[1].replace("Not", "", 1).replace("(", "").replace(")", "")
-        class_c = ontology_manager.create_class(couple_member_class[1])
-        not_class_c = ontology_manager.create_class("Not(" + couple_member_class[1] + ")")
-        class_c.equivalent_to = [Not(not_class_c)]
-        print_msg: str = "Sintomo aggiunto: " + couple_member_class[0]
-        if reasoning: test = not test
-        if not test:
-            patient = class_c.name
-            ontology_manager.add_member_to_class(couple_member_class[0], class_c, symp=True)
-        else:
-            patient = not_class_c.name
-            ontology_manager.add_member_to_class(couple_member_class[0], not_class_c, symp=True)
-        print(print_msg + " " + patient)
-        symptoms_for_plot += "#" + patient + " "
-    file_object.close()
-
-    if result: return symptoms_for_plot

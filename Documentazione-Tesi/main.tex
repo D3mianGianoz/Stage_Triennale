@@ -1,0 +1,91 @@
+\documentclass[12pt,twoside]{report}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,headheight=15pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,italian]{babel}
+\usepackage[export]{adjustbox}
+\usepackage{multicol}
+\usepackage{graphicx}
+% cartella da cui attigere immagini
+\graphicspath{ {immagini/} }
+
+% an easier format to achieve as you lose the constraint on equalising page content. 
+\raggedbottom
+
+% trasforma i \par in spazi
+\usepackage{parskip}
+
+% Commenti multilinea
+\usepackage{verbatim}
+
+% Package per le parti di matematica
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Package per inserire il codice
+\usepackage{minted}
+\usemintedstyle{emacs}
+%emacs, manni
+
+% inserire immaggi al top del foglio
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+
+% testa e fondo pagina che richiamano il frontespizio durante la lettura 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% da customizzare a piacere
+\fancyhead{}
+\fancyhead[RO,LE]{Diagnosis by Numbers}
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,CE]{Capitolo \thechapter}
+\fancyfoot[CO,RE]{Damiano Gianotti}
+% Per cambiare lo spessore delle linee di testa e piè pagina
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% bibliografia
+\usepackage[backend=biber]{biblatex}
+\addbibresource{references.bib}
+
+\begin{document}
+    \input{chapters/frontespizio}
+    
+	\input{chapters/abstract}
+	
+	\tableofcontents
+	
+	\chapter{Introduzione}
+	\input{chapters/introduction}
+	
+	\chapter{Logiche Descrittive}\label{chap: DL}
+	\input{chapters/chapter02}
+	
+	\chapter{Strumenti utilizzati}
+	\input{chapters/chapter03}
+	
+	\chapter{Caso d'uso: Strumento per il supporto diagnostico}
+	\input{chapters/chapter04}
+	
+	\chapter{Conclusione e sviluppi futuri}
+	\input{chapters/conclusion}
+	
+	\appendix
+	\chapter{Esempio completo}
+	\input{chapters/appendix}
+	
+	\printbibliography
+	
+		
+	%\chapter*{Dedication}
+	%To mum and dad
+	
+	%\chapter*{Declaration}
+	%I declare that..
+	
+	%\chapter*{Acknowledgements}
+	%I want to thank...
+	
+\end{document}

@@ -1,25 +1,17 @@
 Classes:
-MemoryLoss Depressed Paranoia Hallucinations Thirst WeightLoss DiabetesPatient ColonCancerPatient Stressed Insomnia Headache Obese AlzheimerPatient
+Bipolar Depressed MoodReactivity ProstateCancerPatient Nocturia Smart Not(Smart)
 Set_as_sub_class:
-Paranoia,Hallucinations
+Bipolar,Depressed
 Add_members_to_class:
-Greg;Paranoia
+Greg;Depressed,Not(Smart)
 Set_typical_facts:
-Typical(AlzheimerPatient),MemoryLoss,0.85
-Typical(AlzheimerPatient),Depressed,0.70
-Typical(AlzheimerPatient),Paranoia,0.55
-Typical(AlzheimerPatient),Hallucinations,0.55
-Typical(DiabetesPatient),Thirst,0.90
-Typical(DiabetesPatient),WeightLoss,0.75
-Typical(DiabetesPatient),Depressed,0.45
-Typical(Obese),DiabetesPatient,0.60
-Typical(Obese),ColonCancerPatient,0.50
-Typical(Obese),Stressed,0.70
-Typical(Depressed),Insomnia,0.80
-Typical(Depressed),Headache,0.65
+Typical(Depressed),Not(MoodReactivity),0.85
+Typical(Depressed),Smart,0.65
+Typical(Bipolar),MoodReactivity,0.7
+Typical(ProstateCancerPatient),MoodReactivity,0.6
+Typical(ProstateCancerPatient),Nocturia,0.8
 $$$
 Set_cost_of:
-AlzheimerPatient: 5000
-DiabetesPatient: 2000
-Obese: 1000
+Bipolar: 1000
+ProstateCancerPatient: 10000
 Depressed: 3000

@@ -21,6 +21,7 @@ class OntologyManager:
         self.scenarios_list = list()
         self.typical_members_list = list()
         self.cost_dict = dict()
+        self.symptoms_dict = dict()
         self.my_world = World()
         self.big_world = World()
         self.onto = self.my_world.get_ontology(iri)
@@ -47,9 +48,18 @@ class OntologyManager:
         with self.onto:
             sub_class_identifier.is_a.append(super_class_identifier)
 
+    def add_member_to_class(self, member_name, class_identifier, symp: bool = False):
+        self.a_box_members_list.append(AboxMember(class_identifier, member_name, symp))
+        return class_identifier(member_name)
+
+    def add_member_to_multiple_classes(self, member_identifier, class_list, symp: bool = False):
+        for c in class_list:
+            member_identifier.is_a.append(c)
+            self.a_box_members_list.append(AboxMember(c, member_identifier.name, symp))
+
     # & operatore logico di owlready di intersezione.
     # r1 proprietà di owlready
-    # only perogni
+    # only per ogni
     # some invece significa esiste
 
     def add_typical_fact(self, t_class_identifier, class_identifier, probability="No probability"):
@@ -67,6 +77,80 @@ class OntologyManager:
             not_t_class_identifier_1.is_a.append(r1.some(t_class_identifier & t_class_identifier_1))
 
             self.typical_facts_list.append(TypicalFact(t_class_identifier, class_identifier, probability))
+
+    # C e C1
+    # Interesezione serve per esplicitare il concetto della doppia appartenenza
+
+    def set_as_typical_member(self, member_name, t_class_identifier, t_class_identifier_1):
+        with self.onto:
+            print("Membro tipico:")
+            t_class_identifier(member_name)
+            t_class_identifier_1(member_name)
+            t_class_intersection = self.get_class("Intersection" + t_class_identifier.name + t_class_identifier_1.name)
+            t_class_intersection(member_name)
+            print(member_name + " is_a " + t_class_identifier.name)
+            print(member_name + " is_a " + t_class_identifier_1.name)
+            print(member_name + " is_a " + t_class_intersection.name)
+
+    def is_class_present(self, class_name):
+        if self.get_class(class_name) is not None:
+            return True
+        return False
+
+    def get_class(self, class_name):
+        return self.onto[class_name]
+
+    def consistency(self, condition: bool = False):
+        try:
+            with self.onto:
+                if condition:
+                    sync_reasoner(self.my_world)
+                    classi_incosistenti = list(self.my_world.inconsistent_classes())
+                    if not len(classi_incosistenti) == 0:
+                        return classi_incosistenti
+                else:
+                    sync_reasoner(self.big_world)
+                return "The ontology is consistent"
+        except OwlReadyInconsistentOntologyError:
+            return "The ontology is inconsistent"
+
+    def store_for_reasoning(self, member_name: str, class_id: object):
+        self.symptoms_dict.update({class_id: member_name})
+
+    def add_symptoms_to_kb(self):
+        for class_sy, pname, in self.symptoms_dict.items():
+            class_c = self.create_class(class_sy.name)
+            not_class_c = self.create_class("Not(" + class_sy.name + ")")
+            class_c.equivalent_to = [Not(not_class_c)]
+            self.add_member_to_class(pname, not_class_c, symp=True)
+            print("Sintomo aggiunto: " + pname + ": " + class_c.name)
+
+    def save_base_world(self):
+        self.onto.save("ontoBase.owl", format="ntriples")
+
+    def create_new_world(self):
+        self.onto.destroy()
+        self.big_world = World()
+        self.onto = self.big_world.get_ontology(
+            "file://" + PATH_TO_ONTO + "//ontoBase.owl").load()     # .load(True, None, True)
+
+    def show_classes_iri(self):
+        for c in self.big_world.classes():
+            print(str(c.name) + " is_a " + str(c.is_a))
+
+    def show_members_in_classes(self):
+        for c in self.big_world.classes():
+            for m in c.instances():
+                print(m.name + " member_of " + c.name)
+
+    def show_classes_iri_my(self):
+        for c in self.my_world.classes():
+            print(str(c.name) + " is_a " + str(c.is_a))
+
+    def show_members_in_classes_my(self):
+        for c in self.my_world.classes():
+            for m in c.instances():
+                print(m.name + " member_of " + c.name)
 
     def show_scenarios(self):
         num_scenario = 1
@@ -98,68 +182,6 @@ class OntologyManager:
             print(record)
         print("FINE SCENARIO")
 
-    # C e C1
-    # Interesezione serve per esplicitare il concetto della doppia appartenenza
-
-    def set_as_typical_member(self, member_name, t_class_identifier, t_class_identifier_1):
-        with self.onto:
-            print("Membro tipico:")
-            t_class_identifier(member_name)
-            t_class_identifier_1(member_name)
-            t_class_intersection = self.get_class("Intersection" + t_class_identifier.name + t_class_identifier_1.name)
-            t_class_intersection(member_name)
-            print(member_name + " is_a " + t_class_identifier.name)
-            print(member_name + " is_a " + t_class_identifier_1.name)
-            print(member_name + " is_a " + t_class_intersection.name)
-
-    def add_member_to_class(self, member_name, class_identifier, symp: bool = False):
-        self.a_box_members_list.append(AboxMember(class_identifier, member_name, symp))
-        return class_identifier(member_name)
-
-    def add_member_to_multiple_classes(self, member_identifier, class_list, symp: bool = False):
-        for c in class_list:
-            member_identifier.is_a.append(c)
-            self.a_box_members_list.append(AboxMember(c, member_identifier.name, symp))
-
-    def is_class_present(self, class_name):
-        if self.get_class(class_name) is not None:
-            return True
-        return False
-
-    def get_class(self, class_name):
-        return self.onto[class_name]
-
-    def consistency(self, condition: bool = False):
-        try:
-            with self.onto:
-                if condition:
-                    sync_reasoner(self.my_world)
-                else:
-                    sync_reasoner(self.big_world)
-                return "The ontology is consistent"
-        except OwlReadyInconsistentOntologyError:
-            return "The ontology is inconsistent"
-
-    def show_classes_iri(self):
-        for c in self.big_world.classes():
-            print(str(c.name) + " is_a " + str(c.is_a))
-
-    def show_members_in_classes(self):
-        for c in self.big_world.classes():
-            for m in c.instances():
-                print(m.name + " member_of " + c.name)
-
-    def save_base_world(self):
-        self.onto.save("ontoBase.owl", format="ntriples")
-        self.onto.destroy()
-
-    def create_new_world(self):
-        self.big_world = World()
-        self.onto = self.big_world.get_ontology(
-            "file://" + PATH_TO_ONTO + "//ontoBase.owl").load()
-
-    # .load(True, None, True)
-
     # TODO Metodi mai utilizzati decidere cosa farne
     @staticmethod
     def destroy_class(class_identifier):
@@ -168,3 +190,10 @@ class OntologyManager:
     @staticmethod
     def set_classes_as_disjoint(classes_identifier_list):
         AllDisjoint(classes_identifier_list)
+
+    @staticmethod
+    def remove_onto_file():
+        if os.path.exists("ontoBase.owl"):
+            os.remove("ontoBase.owl")
+        else:
+            print("The file does not exist")

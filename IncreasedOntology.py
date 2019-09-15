@@ -27,12 +27,12 @@ def compute_probability_for_typical_members(onto_manager):
         # Casi consecutivi
         while cnsec > 0:
             __set_probability(
-                prob_to_assign_to_typical_member,onto_manager,facts_list[i - cnsec].t_class_identifier,
+                prob_to_assign_to_typical_member, onto_manager, facts_list[i - cnsec].t_class_identifier,
                 facts_list[i - cnsec].class_identifier)
             cnsec -= 1
         # casi "normali"
         __set_probability(
-            prob_to_assign_to_typical_member,onto_manager,facts_list[i].t_class_identifier,
+            prob_to_assign_to_typical_member, onto_manager, facts_list[i].t_class_identifier,
             facts_list[i].class_identifier)
         i = i + 1
         prob_to_assign_to_typical_member = 1.0
@@ -51,14 +51,15 @@ def __set_probability(probability_to_assign_to_typical_member, ontology_manager,
                 ))
 
 
-def generate_scenarios(ontology_manager):
+def __generate_scenarios(ontology_manager):
     return chain(*map(lambda x: combinations(
         ontology_manager.typical_members_list, x), range(0, len(ontology_manager.typical_members_list) + 1))
                  )
 
 
-def set_probability_for_each_scenario(scenarios, ontology_manager):
-    #TODO trovare un modo migliore per gestire lo scenario vuoto
+def set_probability_for_each_scenario(ontology_manager):
+    scenarios = __generate_scenarios(ontology_manager)
+    # TODO trovare un modo migliore per gestire lo scenario vuoto
     scenarios.__next__()
     for scenario in scenarios:
         scenario = list(scenario)

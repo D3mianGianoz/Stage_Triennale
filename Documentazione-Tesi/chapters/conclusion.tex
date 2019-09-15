@@ -1,0 +1,24 @@
+Questo breve capitolo finale serve come resoconto di tutto quello
+presentato fin’ora e cerca di dare un’idea su come questo tool 
+potrebbe essere impiegato, e sulle possibili future evoluzioni che potrà assumere.
+
+Il focus del progetto è il supporto alle decisioni del medico,  l'affiancamento, non la sostituzione di tale figura professionale,
+
+Il considerare i sintomi, normalmente catalogati come atipici, per una certa malattia, 
+sotto una diversa luce potrebbe permettere di scoprire che, in realtà, sono indirettamente collegati ad altre patologie.
+Per rendere l’idea si pensi ad una persona che soffre di obesità; tendenzialmente 
+un obeso ha problemi di metabolismo, scarsa autostima e alti livelli di colesterolo. 
+L’utilizzo di smartphone durante i pasti è stato riscontrato essere un fattore incidente sull’aumento di peso, poiché i pazienti testati, tendono a prestare meno attenzione a quello che mangiano e, come conseguenza, ingeriscono maggiori quantità di cibo. 
+Questo fatto, indirettamente collegato con l’obesità, potrebbe essere, in alcuni soggetti,
+un fattore decisivo. Come conseguenza, questa situazione, se ben rappresentata nella KB, potrebbe esser modellata nello strumento come uno scenario poco probabile, ma sempre possibile; la chiave è avere sottomano lo spettro completo delle alternative.
+
+Per quanto riguarda possibili migliorie, le strade percorribili sono numerose; a partire dall'interfaccia utente: la creazione di una GUI e la semplificazione del processo 
+di immissione dati rappresenterebbe un notevole passo avanti per quanto riguarda l'usabilità
+e abbasserebbe la curva di apprendimento del software.
+Pensando, invece, all'effettivo test ed utilizzo sul campo, è necessario un lavoro di studio,
+modifica e creazione di ontologie realistiche o semi-realistiche per dare una parvenza di 
+veridicità alle diagnosi prodotte, soprattutto per quanto riguarda le probabilità delle
+relazioni e i costi delle diagnosi.
+Un altro  possibile percorso potrebbe essere quello di computare e aggiungere ulteriori metadati ai singoli scenari, come, ad esempio, tempistiche indicative e/o un elenco di esami/visite necessarie alla verifica della "diagnosi".
+Se dovessimo pensare a delle ottimizzazioni e perfezionamenti, una delle prime idee possibili è l'utilizzodi super-classi \textbf{OWL} più significative del generico \mintinline{XML}{Thing}; classi come
+\mintinline{XML}{Patient}, \mintinline{XML}{MedicalIllness} o \mintinline{XML}{Symptom} scritte in un ontologia di supporto.
