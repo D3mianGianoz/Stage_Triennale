@@ -19,7 +19,7 @@ la congiunzione di due requisiti contrastanti : il bisogno composizioni sintatti
 Uno dei limiti di queste logiche è che non sono in grado di rappresentare proprietà tipiche
 e di ragionare sull'eredità rivedibile \cite{ProbOfEx}.
 Richiamiamo dunque, in maniera informale, un classico esempio proveniente dalla letteratura: 
-immaginiamo di sapere che gli uccelli volano, ma che i pinguini siano volatili che non volano.
+immaginiamo di sapere che gli uccelli volano, ma che i pinguini siano uccelli che non volano.
 Questa base di conoscenza sarebbe consistente solo se non ci fosse neppure un pinguino. 
 Per affrontare questo problema fin dai primi anni '90 sono state approfondite e studiate 
 numerose estensioni non monotone delle logiche descrittive.\par
@@ -36,13 +36,13 @@ Questa, oltre ad avere complessità ExpTime-completa (come la sottostante $\math
 	di esprimere e ragionare sulle eccezioni mantenendo una consistenza della base di conoscenza.\cite{DLExtension};
 		
 	\item il secondo ingrediente necessario sarà una semantica distribuita, simile 
-	a quella che per le logiche descrittive probabilistiche, conosciuta come DISPONTE. 
+	a quella utilizzata per le logiche descrittive probabilistiche, conosciuta come DISPONTE. 
 	L’idea è quindi quella di aggiungere un’etichetta alle inclusioni che indichi la probabilità 
 	di tale fenomeno, per poter esprimere quanto sia possibile che un evento eccezionale si verifichi.\par
 	Con questa estensione è possibile esprimere fatti del tipo: \par 
 	$ \mathbf{T}(\mathit{C})\sqsubseteq_{p} \mathit{D} $ ("abbiamo una probabilità p che un tipico C sia un D") \par 
 	direttamente nella base di conoscenza oppure inferire e/o dedurre fatti del tipo 
-	\par$ \mathit{p}:\mathbf{T}(\mathit{C})(\mathit{m})$ ("il membro m è un tipico C con una certa probabilità p").\cite{ProbOfEx};
+	\par$ \mathit{p}:\mathbf{T}(\mathit{C})(\mathit{m})$ ("il membro m è un tipico C con una certa probabilità p")\cite{ProbOfEx};
 		
 	\item il terzo riguarda il rafforzamento della semantica trattato nell'articolo \cite{FromPLtoDL} 
 	dove gli autori hanno ristretto la consequenzialità logica ad una classe di
@@ -59,23 +59,21 @@ dove $ \mathit{p} \in (0,1) $ il cui significato intuitivo è:
 \text{ e la probabilità di avere elementi } \mathit{C} 
 \text{ che non sono } \mathit{D} \text{ è } 1 -\mathit{p}."
 \end{multline*}
-Va comunque sottolineato al lettore che l'inclusione di tipicalità possa essere correttamente 
-interpretata anche come:
-\begin{equation*}
-	\text{"esistono certi tipici individui } \mathit{C} \text{ che non sono } \mathit{D}."
-\end{equation*}
 
 \section{Motivazioni del lavoro}
 Sul fatto che un calcolatore possa trattare i dati statistici e fare predizioni probabilistiche meglio di un essere umano non possono esserci dubbi:
 l’essere umano non è tanto portato per il ragionamento statistico, che in genere appare controintuitivo. 
 In questo senso DbN potrebbe diventare un aiuto diagnostico prezioso, uno strumento di consultazione del medico, più efficace di trattati e riviste, ma con il grande limite di essere disumanizzante. Infatti il dato rilevante alla diagnosi si raccoglie nel contesto del rapporto medico-paziente e il paziente non racconterebbe a DbN la sua anamnesi come la racconterebbe ad un medico di sua fiducia.\\ 
-Va sottolineato che è ancora uno strumento ultra-sperimentale, e non appartiene, per il momento, a
-una \textit{rete neurale}, quella schiera di “sistemi esperti” che migliorano il proprio funzionamento con l’uso e richiedono, quindi, lunghi periodi di apprendistato.
+Va sottolineato che, a causa della logica non standard  utilizzata, DbN non è certo allo stato dell'arte ma, al momento, un semplice ma efficace prototipo.
 
-L’aspetto più interessante è il contesto in cui andrebbe ad inserirsi: in effetti già esistono applicazioni per lo smartphone che dovrebbero aiutare il medico nelle decisioni o, almeno, fornirgli spunti di riflessione e di esercizio. Contrariamente supportare la diagnostica medica è un problema privo di regole esatte e, in fondo, di ampiezza non limitata che sembra molto al di là delle possibilità di una macchina, ma la presenza di grandi aziende, come \textbf{IMB} con \textbf{Watson}, ci fa chiedere per quanto tempo questo rimarrà così.
+L’aspetto più interessante è il contesto in cui andrebbe ad inserirsi: in effetti già esistono applicazioni per lo smartphone che dovrebbero aiutare il medico nelle decisioni o, almeno, fornirgli spunti di riflessione e di esercizio. Contrariamente, supportare la diagnostica medica è un problema privo di regole esatte e, in fondo, di ampiezza non limitata che sembra molto al di là delle possibilità di una macchina, ma la presenza di grandi aziende, come \textbf{IMB} con \textbf{Watson}, ci fa chiedere per quanto tempo questo rimarrà così.
 
 L’ultimo aspetto da considerare è relativo ai costi: per ora DbN è un embrione, un piccolo prototipo e non è nemmeno immaginabile cosa costerebbe produrne e renderne disponibile un numero sufficiente a soddisfare tutte le possibili richieste di consulenza. D’altra parte la macchina ha delle potenzialità, e anche da sola può dare retta a diverse richieste, ma sicuramente necessita ulteriori sviluppi.
 Il vantaggio nell'uso di un consulente elettronico sarebbe molto grande, sia per l’accuratezza delle diagnosi e delle terapie, sia per le implicazioni medico-legali come elemento di buona prassi.
+
+\section{Spiegazioni}
+
+detto minimamente come DbN opera: che legame c'è con la logica con tipicalità e probabilità? Ecco un'estensione da fare: aggiunga un paragrafo che descriva per sommi capi cosa fa il sistema, anche solo intuitivamente accennando agli scenari e alla diagnosi. Non è neppure detto cosa si intende per diagnosi
 
 
 

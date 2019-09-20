@@ -1,8 +1,11 @@
 In questo capitolo descriveremo le componenti che utilizzeremo nella nostra
 architettura e, per ognuna di queste, introdurremo brevemente le caratteristiche chiave.
+
 \section{OWL2}
 
-L'OWL 2 Web Ontology Language, informalmente OWL 2, è un linguaggio ontologico per il Semantic Web con un significato formale e definito \cite{OWl2Primer}.\\
+L'OWL 2 Web Ontology Language, informalmente OWL 2, è un linguaggio ontologico, basato sulle
+logiche descrittive o \textbf{DL}, costruito 
+per il Semantic Web con un significato formale e definito in \cite{OWl2Primer}.
 Le ontologie in OWL 2 vengono definite tramite la specifica di classi, proprietà, individui e valori dei dati e sono memorizzate come documenti del Semantic Web.
 Queste possono essere pubblicate sul web e riferite da altre ontologie, per costruire basi di conoscenza più complesse. 
 Inoltre sono spesso utilizzate assieme insieme a documenti scritti nel formato RDF, ed stesse vengono scambiate principalmente come documenti RDF.
@@ -32,7 +35,7 @@ Il linguaggio prevede tre componenti principali:
 \begin{enumerate}
 	\item \textbf{Entità}: elementi atomici usati per riferirsi ad oggetti, categorie e relazioni 
 	del mondo reale; costituiscono gli assiomi\\ 
-	$Lara,donna,Pietro,Sofia,essere_fidanzati$ 
+	$Lara,donna,Pietro,Sofia,essere\_fidanzati$ 
 	\item \textbf{Assiomi}: affermazioni (\textit{statement}) di base espressi da un'ontologia OWL
 	$Lara$ è una $donna$ | $ Pietro $ e $ Sofia $ sono $ fidanzati $
 	\item \textbf{Espressioni}: combinazioni di entità che costituiscono descrizioni complesse, definite
@@ -52,8 +55,7 @@ Ogni file \textit{.owl} inizia con un preambolo: \label{code:preambolo}
 \end{minted} 
 \mint{XML}|Prefix(..)| permette di fare, sinteticamente, riferimento a elementi definiti in altre ontologie o in altri file; il prefisso più l'etichetta sono composti nell'identificatore dell'elemento di interesse, ad esempio
 \mintinline{XML}{owl:Thing} diventa \mintinline{XML}{http://www.w3.org/2002/07/owl#Thing}.
-\mint{XML}|Ontology(..)| Specifica l'\textbf{URI} (Uniform Resource Identifier) del file contenente l'ontologia
-definita
+\mint{XML}|Ontology(..)| Specifica l'\textbf{URI} (Uniform Resource Identifier) del file contenente l'ontologia definita.
 \subsection{Sintassi e Modellazione di Base} \label{subSec: SintassiOWL}
 È possibile scrivere ontologie OWL utilizzando sintassi differenti:
 \begin{itemize}
@@ -109,7 +111,7 @@ E alcune delle relazioni chiave:
 
 Permette di legare due individui tramite una proprietà.
 \mint{XML}{ObjectPropertyAssertion(:haMoglie :Donna :Uomo)}
-\subsection{Classi complesse e implementazione di $ \cap,\cup,\exists $ e $ \forall $}
+\subsection{Classi complesse e implementazione di $ \sqcap,\sqcup,\exists $ e $ \forall $}
 Tramite opportuni costrutti è possibile specificare classi complicate e relazionarle, 
 anche grazie all'operatore di intersezione $\cap$ e disgiunzione $ \cup $.
 \begin{minted}{XML}

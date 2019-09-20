@@ -90,7 +90,7 @@ varia a seconda delle possibilità e delle restrizioni imposte nei seguenti elem
 	di definire, rispettivamente, la cardinalità funzionale, semplice e qualificata (in ordine di espressività crescente);
 	\item $\mathcal{D:}$ descrive la possibilità di riferirsi a domini concreti.
 \end{itemize}
-\subsection{Monotonia}\label{monoto}
+\subsection{Monotonicità}
 Caratteristica peculiare delle \textbf{DL} nella forma di
 \[ KB \models Q \implies KB \cup \{F\} \models Q\]
 ovvero, se da una base di conoscenza \textbf{KB} si può concludere un fatto $ Q $, 
@@ -100,7 +100,7 @@ Questa proprietà in sè è molto \textit{importante}, tuttavia non sempre si ri
 esistono contesti (come il nostro) in cui, più che dare benefici, rende difficile il 
 ragionamento e la deduzione di nuove informazioni.
 Vediamone il perché con un famoso esempio.\\
-Consideriamo la seguente base di conoscenza o \textit{Knowledge Base}      
+Consideriamo la seguente base di conoscenza o \textit{Knowledge Base} tratta da \cite{PEAR}:     
 \begin{itemize}
 	\item[] \textit{Piove} $\implies$ \textit{Prendo(ombrello)}
 	\item[] \textit{Piove}
@@ -121,7 +121,7 @@ Contro le nostre aspettative/intuizioni la conclusione non cambia, poiché dalle
 iniziali si giunge allo stessa conclusione senza che la nuova "conoscenza" influisca sul risultato.
 Questo semplice modello ci mostra perché è importante, in contesti
 specifici, avere dei linguaggi e degli automatismi in grado di tenere conto della 
-realtà dei fatti, cioè una logica che possegga una \textbf{eredità rivedibile}
+realtà dei fatti, cioè una logica che possegga una \textbf{eredità rivedibile}.
 \section{Il linguaggio base $\mathcal{AL}$}
 Un sistema di rappresentazione della conoscenza basato sulle \textbf{DL}
 permette di creare, manipolarle e ragionare su diverse \textit{Knowledge Base}.\\
@@ -157,7 +157,7 @@ l'idea di modello e l'idea di funzione d'interpretazione:
 \begin{equation} \label{fun}
 fx: A \to \Delta
 \end{equation}
-Definito che le interpretazioni $\mathcal{I}$ sono sottoinsiemi non vuoti di $\Delta$(dominio dell'interpretazione),
+Definito che le interpretazioni $\mathcal{I}$ sono sottoinsiemi non vuoti di $\Delta$ (dominio dell'interpretazione),
 lo scopo di \ref{model} è quello di fornire un significato alle formule, mentre, 
 per quanto riguarda \ref{fun}, quello di
 permettere di assegnare a ogni concetto atomico $\mathit{A}$ un insieme 
@@ -187,6 +187,11 @@ La cui semantica risulta essere:
 \[ (\neg C)^{\mathcal{I}} =  \Delta^{\mathcal{I}}\backslash C^{\mathcal{I}}\]
 Grazie a questa aggiunta il linguaggio $ \mathcal{AL} $ si arricchisce, 
 passando ad essere la logica descrittiva $ \mathcal{ALC} $.
+
+\paragraph{Esempio} \hfill
+
+Ci starebbe bene un esempio, come quelli che ha fatto all'inizio del capitolo, però con la sintassi di ALC, magari con un quantificatore, la negazione e una congiunzione, oltre a qualche fatto nella ABox
+
 \section{Operatore T}
 \subsection{Premessa}
 L'obbiettivo della \textit{TBox} è costruire una tassonomia di concetti (\textit{ossia} un albero di classificazione). 
@@ -195,7 +200,7 @@ Data una tassonomia $T$, con $A$ e $B$ tali che $A$ è un concetto “padre“ d
 non sempre tutte le proprietà di $A$ possono essere ereditate da $B$.\\
 L’approccio tradizionale a questo problema è di gestire le perdite di proprietà 
 integrando alcuni meccanismi di ragionamento non monotono, portando allo studio di estensioni 
-delle logiche descrittive in questo ambito e cercando di superare il limite visto a \ref{monoto} .
+delle logiche descrittive in questo ambito e cercando di superare il limite.
 \subsection{Definizione di T}
 Idealmente un'estensione possibile dovrebbe possedere almeno le seguenti caratteristiche:
 \begin{enumerate}
@@ -314,8 +319,8 @@ permettendo modellare la situazione in questo modo:
 	\label{fig:esempioM}
 	\includegraphics[height=13cm,width=\textwidth]{immagini/ModelloALC_T.png}
 	\centering
-\end{figure} % Da rivedere
-In \ref{fig:esempioM} è possibile rappresentare Tux (un \textit{Pinguino}) come è un uccello che non vola;
+\end{figure}
+Nella Figura \ref{fig:esempioM} è possibile rappresentare Tux (un \textit{Pinguino}) come è un uccello che non vola;
 graficamente quest'informazione è racchiusa nella zona verde dell'insieme Uccello,
 ovvero, quella sezione popolata da tutti gli uccelli atipici, mentre la porzione in blu rappresenta gli elementi tipici.
 
@@ -344,12 +349,11 @@ consistenti con la base di conoscenza.
 Senza entrare troppo nei dettagli la semantica $\mathcal{ALC} + \mathbf{T}_{\mathbf{R}}^{\mathit{RaCl}}$
 non monotona si basa su modelli razionali minimi che riducono al minimo il \textit{rank} degli elementi del dominio.
 
-% Da rivedere
-Intuitivamente, dati due modelli $ M_1, M_2 $ di una \textbf{KB} se è noto che 
+Intuitivamente, dati due modelli $ \mathcal{M_1,M_2} $ di una \textbf{KB} se è noto che 
 in $ M_1 $ un elemento $ x $ ha rank 2 (a causa di istanze $ z < y < x $) ed
 in $ M_2 $ $ x $ ha rank 1 (a causa di $ y < x $), noi preferiamo il secondo,
 perché l’elemento x risulta più tipico che in $ M_1 $.
-I modelli vengono quindi selezionati per il ragionamento scartando quelli grado più elevato poiché in essi gli elementi sono meno "tipici" e quindi verrebbero dedotte meno informazioni (vedi anche \ref{fig:valutaz}).
+I modelli vengono quindi selezionati per il ragionamento scartando quelli grado più elevato poiché in essi gli elementi sono meno "tipici" e quindi verrebbero dedotte meno informazioni (vedi anche Figura a pagina \pageref{fig:valutaz}).
 
 \clearpage
 
@@ -359,7 +363,7 @@ In alcuni contesti non è sempre possibile modificare l'intera struttura basata 
 Consideriamo la \textit{TBox}:
 \[ \mathbf{T}(Pesce) \sqsubseteq Oviparo \]
 Come sappiamo esprime il fatto che, tipicamente, gli uccelli sono ovipari (depositano le uova). \\
-Ecco la traduzione equipollente senza far uso dell'operatore $ \mathbf{T} $ è la seguente: 
+Ecco la traduzione equipollente, vista in \cite{PEAR} e \cite{COCOS}, senza far uso dell'operatore $ \mathbf{T} $ è la seguente: 
 \begin{enumerate}\label{enu:elencoCond}
 	\item $ Pesce \sqcap Pesce1 \sqsubseteq Oviparo $
 	\item $ Pesce1 \sqsubseteq \forall R(\neg Pesce \sqcap Pesce1) $
@@ -384,8 +388,8 @@ In caso di risposta affermativa sarà verificato che:
 Ecco quindi verificata la condizione $ 1 $ di \ref{enu:elencoCond}
 Viceversa la definizione $ 2 \text{ e } 3 $ esprimono formalmente cosa significhi essere un individuo a/tipico.
 \begin{multicols}{2}
-	$ Pesce1 \sqsubseteq \forall R(\neg Pesce \sqcap Pesce1) $ \\
-	$ \neg Pesce1 \sqsubseteq \exists R(Pesce \sqcap Pesce1) $
+	$ Pesce1 \sqsubseteq \forall R.(\neg Pesce \sqcap Pesce1) $ \\
+	$ \neg Pesce1 \sqsubseteq \exists R.(Pesce \sqcap Pesce1) $
 \end{multicols}
 Nell'esempio \ref{enu:elencoCond}, i membri $ d,e \text{ ed } f $ sono pesci tipici. È evidente che l'intersezione
 $ \neg Pesce \sqcap Pesce1 $ sia vuota. Dunque deduciamo che, dato l'insieme $ A $, se un elemento $ m \in A$ 
@@ -532,9 +536,13 @@ sono illustrate nella seguente tabella \ref{fig:estesioni}
 	\centering
 \end{figure}
 
+\section{Aggiunte}
+
+Qui deve assolutamente aggiungere, prima di considerare conclusa la descrizione della logica, la parte relativa alla diagnosi. Allo stato attuale, ciò è limitata alla descrizione dell'implementazione, ma dovrebbe descriverla prima formalmente a partire dalla logica che ha correttamente richiamato. Inoltre, si faccia accompagnare da un esempio, magari il solito di Greg (gli cambi i nomi). Il lettore, prima di leggere di owlready, deve avere idea di dove lo stiamo portando. Se non le piace mescolare questa parte nel capitolo della logica, va benissimo: faccia un capitolo a parte, anche breve, ma sulla DbN
+
 E con questo concludiamo la trattazione dei fondamenti di logica.\\ 
 Questa capitolo altro non è che un sunto, a tratti informale, della storia di questa branca matematica  
-e non sostituisce certamente gli articoli e studi fatti nel corso degli anni da figure molto più autorevoli
+e non sostituisce certamente gli articoli e studi fatti nel corso degli anni, da figure molto più autorevoli,
 della mia ma costituisce il corpo fondante di tutta la tesi.
 
 

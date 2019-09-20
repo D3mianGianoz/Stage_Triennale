@@ -38,7 +38,7 @@ Le conclusioni così prodotte sono certamente interessanti, ma la procedura di r
 in volta, dalla query iniziale. \\Intuitivamente, ci si chiede se un determinato evento $ F $ sia 
 conseguenza logica nella possibili diramazioni (scenari) $ B_1,B_2,....,B_n $ della base di conoscenza $ B $.
 Questo procedimento non è applicabile in un contesto realistico, poiché chiederebbe all'utente di comprendere
-la logica anche solo per capire come effettuare un interrogazione significativa.
+la logica anche solo per capire come effettuare un'interrogazione significativa.
 Inoltre sono presenti dei difetti tecnici, come, ad esempio, la necessità, durante la verifica di
 conseguenza logica, di effettuare una copia dell'istanza del manager dell'ontologia per ogni scenario.
 
@@ -89,10 +89,12 @@ Partiamo dall'illustrare come vengano memorizzate le informazioni relative all'o
 e quale sia il corrispettivo del file in termini di logiche descrittive. 
 \inputminted[lastline=11]{text}{codice/ExOntoInput.txt}
 Il file \emph{OntologyInput.txt} è composto da 4 parti:\\
-\mintinline{text}{Classes} altro non è che un elenco di tutte le classi che si andranno ad utilizzare;
-\mintinline{text}{Set_as_sub_class} è una lista composta da coppie sottoclasse e classe, vedi \ref{subSec: SintassiOWL};
-\mintinline{text}{Add_members_to_class} contiene gli individui e le relative classi di appartenenza; 
-\mintinline{text}{Set_typical_facts:} contiene l'elenco delle inclusioni di tipicalità.
+\begin{enumerate}
+	\item \mintinline{text}{Classes} altro non è che un elenco di tutte le classi che si andranno ad utilizzare;
+	\item \mintinline{text}{Set_as_sub_class} è una lista composta da coppie sottoclasse e classe, vedi il sottoparagrafo \ref{subSec: SintassiOWL};
+	\item \mintinline{text}{Add_members_to_class} contiene gli individui e le relative classi di appartenenza; 
+	\item \mintinline{text}{Set_typical_facts:} contiene l'elenco delle inclusioni di tipicalità.
+\end{enumerate}
 
 La stessa ontologia espressa in termini di \textbf{KB}$ (\mathcal{T}, \mathcal{A}) $:
 \begin{itemize}
@@ -119,7 +121,7 @@ Infine il file \emph{PatientSetOfSymptoms.txt} in confronto è più basilare
 \begin{minted}{text}
 	Luca;Not(Bipolar) | Greg;Nocturia
 \end{minted} 
-Questi fatti verranno manipolati e poi aggiunti all'$\mathcal{AB}ox$ in ogni scenario, solo se consistenti con l'ontologia di base.
+Questi fatti verranno manipolati e poi aggiunti all'$ Abox$ in ogni scenario, solo se consistenti con l'ontologia di base.
 
 \subsection{La classe dedicata alla traduzione} \label{subSec: InputFile}
 Il file \emph{InputFromFile.py} contiene due metodi:
@@ -320,7 +322,7 @@ Questo verrà memorizzato nell'oggetto dedicato \mintinline{Python}{Scenario}
  ovviamente gestito dall'\mintinline{Python}{OntologyManager}.
 
 In particolare il metodo \mintinline{Python}{__difference} effettua una 
-differenza insiemistica tra i due insiemi: membri tipici assunti e generati (il sovrainsieme).\\ 
+differenza insiemistica tra i due insiemi: membri tipici: assunti e generati. 
 \mintinline{Python}{__get_typical_member}, invece, calcola la probabilità del membro tipico non assunto
 nello scenario corrente grazie alla presenza delle chiavi identificative \mintinline{Python}{key}:
 cerca all'interno dell'\mintinline{Python}{ontology_manager} l’oggetto \mintinline{Python}{TypicalMember} corrispondente a quella chiave.
@@ -379,7 +381,7 @@ Alla luce di quanto detto prima, vediamo ora la struttura del file \emph{QueryRe
 in particolare, delle sue operazioni.
 \begin{minted}{Python}
 def show_query_result(self):
-..
+	.....
 def create_and_show_plot(self, patient_symptoms: str, disease_cost: dict):
 	# Crea una figura con un secondo asse y
 	self.fig = make_subplots(specs=[[{"secondary_y": True}]])
@@ -398,31 +400,31 @@ Più interessante è \mintinline{Python}{create_and_show_plot}, questa, grazie a
 Plotly (vedi \ref{sec: Plotly} a pag. \pageref{sec: Plotly}), permette la realizzazione di un grafico
 interattivo, contente tutte le informazioni significative e facilmente esplorabile.
 L'idea è stata quella di utilizzare due grafici distinti per rappresentare la probabilità e 
-i costi dei singoli scenari, vedi \ref{fig:duePlotDistinti}.\\
-\begin{figure}[h]
-	\includegraphics[width=\linewidth]{plot/plotly_two_graph.png}
-	\caption{Grafico a dispersione e Istogramma separati}
-	\centering
-	\label{fig:duePlotDistinti}
-\end{figure}
+i costi dei singoli scenari, vedi la Figura \ref{fig:duePlotDistinti}.
 Successivamente si è pensato di unire i due grafici, poiché accomunati dagli stessi valori sull'asse delle x,
-semplicemente il numero dello scenario generato; il risultato è stato, all'incirca, questo \ref{fig:duePlotUniti}.\\
-\begin{figure}[h]
-	\includegraphics[width=\linewidth]{plot/plot_mixed.png}
-	\caption{Grafico a dispersione e Istogramma uniti}
-	\centering
-	\label{fig:duePlotUniti}
-\end{figure}
+semplicemente il numero dello scenario generato; il risultato è stato, all'incirca, questo è mostrato
+nella Figura \ref{fig:duePlotUniti}.
 Per migliorare il risultato finale sono stati aggiunti ulteriori metadati, così da rendere il grafico
 il più auto-esplicativo possibile. Vale la pena menzionare la possibilità di esportare e salvare i risultati
 in due formati distinti. Html per una visione dinamica, mentre pdf per una statica.
 \begin{minted}{Python}
 def save_query_result(self,name=None):
 	if name is not None:
-		....
 		# self.fig.write_html(name + ".html")
 		self.fig.write_image(name + ".pdf")
 \end{minted}
+\begin{figure}[h]
+	\includegraphics[width=\linewidth]{plot/plotly_two_graph.png}
+	\caption{Grafico a dispersione e Istogramma separati}
+	\centering
+	\label{fig:duePlotDistinti}
+\end{figure}
+\begin{figure}[h]
+	\includegraphics[width=\linewidth]{plot/plot_mixed.png}
+	\caption{Grafico a dispersione e Istogramma uniti}
+	\centering
+	\label{fig:duePlotUniti}
+\end{figure}
 \clearpage
 
 \section{Il file principale \emph{Main.py}}
