@@ -12,7 +12,8 @@ versione \textit{Python3.7}) per diversi motivi, eccone alcuni:
 \end{itemize}
 
 \section{PEAR - Sintesi}
-\paragraph{Struttura}Questo tool, basato sulla logica $ \mathcal{ALC} + \mathbf{T}_{\mathbf{R}}^{\mathtt{P}} $, è strumento 
+\paragraph{Struttura}
+Questo tool, basato sulla logica $ \mathcal{ALC} + \mathbf{T}_{\mathbf{R}}^{\mathtt{P}} $, è strumento 
 che permette di ragionare e dedurre informazioni, di definire 
 precisamente chi siano gli individui tipici, atipici e quali siano
 le caratteristiche peculiari di una data categoria.
@@ -26,13 +27,14 @@ Il funzionamento dell'intero strumento è riassumibile in questi passi:
 	\item viene verificata o meno la consequenzialità logica del fatto $ F $ dato in input per ogni scenario;
 	\item infine vengono mostrati i risultati dell'interrogazione.
 \end{enumerate}
-Questo è possibile anche grazie alla seguente architettura:
+Questo è possibile anche grazie alla seguente architettura(vedi Figura \ref{fig:schemaPEAR}), dove i singoli file richiamano, spesso, i concetti teorici associati, precedentemente illustrati.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=\linewidth]{immagini/architetturaPEAR.png}
 	\caption{Archittetura di Pear}
+	\label{fig:schemaPEAR}
 \end{figure}
-dove i singoli file richiamano, spesso, i concetti teorici associati, precedentemente illustrati.
+
 \paragraph{Limiti}
 Le conclusioni così prodotte sono certamente interessanti, ma la procedura di ragionamento in se è vincolata, di volta
 in volta, dalla query iniziale. \\Intuitivamente, ci si chiede se un determinato evento $ F $ sia 
@@ -42,11 +44,11 @@ la logica anche solo per capire come effettuare un'interrogazione significativa.
 Inoltre sono presenti dei difetti tecnici, come, ad esempio, la necessità, durante la verifica di
 conseguenza logica, di effettuare una copia dell'istanza del manager dell'ontologia per ogni scenario.
 
-Alla luce di quanto detto in precedenza ecco la necessità di ottimizzazione ed espansione di PEAR in 
+Alla luce di quanto detto in precedenza ecco la necessità di ottimizzazione ed espansione di \textbf{PEAR} in 
 una naturale evoluzione: \textsl{Diagnosis by Numbers}
 
 \section{Visione complessiva}
-L'idea di questa tesi, introdotta nel capitolo 1 e ribadita più volte, finalmente inizia a prender forma.
+L'idea di questa tesi, introdotta nel primo capitolo e ribadita più volte, finalmente inizia a prender forma.
 Data un'ontologia, più o meno vasta, arricchita da espressioni di tipicalità e dai sintomi/prodromi
 riguardanti un paziente, l'obiettivo è quello di generare tutte le possibili diagnosi (o spiegazioni),
 controllarne la veridicità (logicamente parlando) e presentarle in forma grafica, evidenziandone la 
@@ -88,23 +90,23 @@ Le successive sezioni del capitolo andranno ad illustrare le funzionalità chiav
 Partiamo dall'illustrare come vengano memorizzate le informazioni relative all'ontologia dallo strumento 
 e quale sia il corrispettivo del file in termini di logiche descrittive. 
 \inputminted[lastline=11]{text}{codice/ExOntoInput.txt}
-Il file \emph{OntologyInput.txt} è composto da 4 parti:\\
+Il file \emph{OntologyInput.txt} è composto da 4 parti:
 \begin{enumerate}
-	\item \mintinline{text}{Classes} altro non è che un elenco di tutte le classi che si andranno ad utilizzare;
-	\item \mintinline{text}{Set_as_sub_class} è una lista composta da coppie sottoclasse e classe, vedi il sottoparagrafo \ref{subSec: SintassiOWL};
-	\item \mintinline{text}{Add_members_to_class} contiene gli individui e le relative classi di appartenenza; 
-	\item \mintinline{text}{Set_typical_facts:} contiene l'elenco delle inclusioni di tipicalità.
+	\item \mintinline{text}{Classes}: altro non è che un elenco di tutte le classi che si andranno ad utilizzare;
+	\item \mintinline{text}{Set_as_sub_class}: è una lista composta da coppie sottoclasse e classe, vedi il sottoparagrafo \ref{subSec: SintassiOWL};
+	\item \mintinline{text}{Add_members_to_class}: contiene gli individui e le relative classi di appartenenza; 
+	\item \mintinline{text}{Set_typical_facts}: contiene l'elenco delle inclusioni di tipicalità.
 \end{enumerate}
 
 La stessa ontologia espressa in termini di \textbf{KB}$ (\mathcal{T}, \mathcal{A}) $:
 \begin{itemize}
-	\item $\mathcal{TB}ox$ 
+	\item $TBox$ 
 		\begin{itemize}
 			\item $ Bipolar \sqsubset Depressed $
 			\item $ \mathbf T(ProstateCancerPatient) \sqsubseteq_{0.80} Nocturia $
 			\item $ \mathbf T(Depressed) \sqsubseteq_{0.85} \neg MoodReactivity $
 		\end{itemize}
-	\item $\mathcal{AB}ox$ 
+	\item $ABox$ 
 		\begin{itemize}
 			\item $ Depressed(Greg) $
 			\item $ ProstateCancerPatient(Luca) $
@@ -166,7 +168,7 @@ Passiamo ora ad analizzare i metodi di istanza incaricati della gestione dell'on
 tra questi spiccano i metodi per la gestione dei \textit{fatti tipici} e dei \textit{membri tipici}, 
 operatori non conosciuti dalla nostra \textbf{API} di Python.
 La soluzione migliore, già adotta in PEAR, consiste nell'eliminare l'operatore $ \mathbf T $ tramite una
-particolare traduzione, vista a \ref{subSec: Traduzione T} e implementata nel metodo 
+particolare traduzione, vista nella sezione \ref{subSec: Traduzione T} e implementata nel metodo 
 \mintinline{Python}{add_typical_fact}.
 Ricordiamo, brevemente, che un paziente è atipico quando esiste \textbf{almeno un} individuo più normale di lui.
 Per, invece, esprimere il concetto di membro $ m $ è un tipico $ C $ bisogna dire che $ m $ appartiene sia
@@ -453,8 +455,10 @@ if __name__ == '__main__':
 	ontology_manager = OntologyManager()
 	build_ontology(ontology_manager)
 	sym: str = entailed_knowledge()
-	IncreasedOntology.compute_probability_for_typical_members(ontology_manager)
-	IncreasedOntology.set_probability_for_each_scenario(ontology_manager)
+	IncreasedOntology.
+		compute_probability_for_typical_members(ontology_manager)
+	IncreasedOntology.
+		set_probability_for_each_scenario(ontology_manager)
 	ontology_manager.show_scenarios()
 	query_result = is_logical_consequence(ontology_manager)
 	query_result.show_query_result()

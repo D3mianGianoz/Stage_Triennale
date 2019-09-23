@@ -1,6 +1,6 @@
 % minipremessa
 In questo capitolo iniziale forniremo una definizione di \textbf{DL} (Description Logics), analizzeremo le sue componenti e verranno descritte brevemente le sue estensioni più importanti, utilizzate negli ultimi anni.
-\section{Prefazione}
+\section{Informazioni iniziali}
 Le logiche descrittive sono una famiglia di formalismi per la rappresentazione
 della conoscenza, con la capacità di descrivere ciò che è noto in un dominio di
 applicazione (detto mondo). Tale rappresentazione si fonda su strutture importanti,
@@ -25,9 +25,9 @@ Ecco alcuni esempi riguardanti individui:
 	\item \textit{Volpe(foxy)}
 	\item \textit{Scappa(foxy)}
 	\item \textit{Gallina(coco)}
-	\item \textit{Ruba(foxy, coco)}
+	\item \textit{Ruba(foxy,coco)}
 	\item \textit{Uomo(jhon)}
-	\item \textit{Insegue(jhon, foxy)}
+	\item \textit{Insegue(jhon,foxy)}
 \end{itemize}
 
 È anche possibile utilizzare l’intersezione di concetti tramite la sintassi 
@@ -187,10 +187,22 @@ La cui semantica risulta essere:
 \[ (\neg C)^{\mathcal{I}} =  \Delta^{\mathcal{I}}\backslash C^{\mathcal{I}}\]
 Grazie a questa aggiunta il linguaggio $ \mathcal{AL} $ si arricchisce, 
 passando ad essere la logica descrittiva $ \mathcal{ALC} $.
-
 \paragraph{Esempio} \hfill
-
-Ci starebbe bene un esempio, come quelli che ha fatto all'inizio del capitolo, però con la sintassi di ALC, magari con un quantificatore, la negazione e una congiunzione, oltre a qualche fatto nella ABox
+\\
+Vediamo un semplice caso che faccia uso di questa nuova sintassi 
+\textit{ABox}
+\begin{itemize}
+	\item $ Volpe(foxy)$
+	\item $ Gallina(coco) $
+	\item $ Uomo(jhon) $
+\end{itemize}
+\textit{TBox}
+\begin{itemize}
+	\item $ \forall x,y |(Volpe(x) \land \textit{Affamata}(x)) \land Gallina(y)  \implies Ruba(x,y) $
+	\item $ \exists x,y |Uomo(x) \land Gallina(y) \land Ama(x,y) \implies \neg Uccide(x,y) \land Protegge(x,y) $
+\end{itemize}
+Per ogni volpe e gallina, se la \textit{Vulpes} è affamata allora ruba il \textit{Gallus domesticus}
+Di conseguenza se esiste una gallina e un uomo che la ama, questo non la ucciderà ma la proteggerà (dalla volpe).
 
 \section{Operatore T}
 \subsection{Premessa}
@@ -536,9 +548,53 @@ sono illustrate nella seguente tabella \ref{fig:estesioni}
 	\centering
 \end{figure}
 
-\section{Aggiunte}
+\subsection{Dalla logica verso la "diagnosi"}
 
-Qui deve assolutamente aggiungere, prima di considerare conclusa la descrizione della logica, la parte relativa alla diagnosi. Allo stato attuale, ciò è limitata alla descrizione dell'implementazione, ma dovrebbe descriverla prima formalmente a partire dalla logica che ha correttamente richiamato. Inoltre, si faccia accompagnare da un esempio, magari il solito di Greg (gli cambi i nomi). Il lettore, prima di leggere di owlready, deve avere idea di dove lo stiamo portando. Se non le piace mescolare questa parte nel capitolo della logica, va benissimo: faccia un capitolo a parte, anche breve, ma sulla DbN
+aggiungere,la parte relativa alla diagnosi. Allo stato attuale, ciò è limitata alla descrizione dell'implementazione, ma dovrebbe descriverla prima formalmente a partire dalla logica che ha correttamente richiamato. Inoltre, si faccia accompagnare da un esempio, magari il solito di Greg (gli cambi i nomi). Il lettore, prima di leggere di owlready, deve avere idea di dove lo stiamo portando. Se non le piace mescolare questa parte nel capitolo della logica, va benissimo: faccia un capitolo a parte, anche breve, ma sulla DbN
+
+Descriviamo formalmente cosa si intenda per diagnosi in questo contesto particolare, aiutandoci con un esempio.
+Data la seguente \textbf{KB} con \\ $ \textit{ABox} = \{MemoryLoss(Pietro)\} $ e \textit{TBox}:
+\begin{itemize}
+	\item $ Paranoia \sqsubseteq Depressed $
+	\item $ \mathbf{T}(AlzheimerPatient) \sqsubseteq_{0.85} MemoryLoss $
+	\item $ \mathbf{T}(AlzheimerPatient) \sqsubseteq_{0.65} Paranoia $
+	\item $ \mathbf{T}(DiabetesPatient) \sqsubseteq_{0.90} Thirst $
+	\item $ \mathbf{T}(DiabetesPatient) \sqsubseteq_{0.55} Depressed $
+	\item $ \mathbf{T}(Depressed) \sqsubseteq_{0.80} Insomnia $
+	\item $ \mathbf{T}(Depressed) \sqsubseteq_{0.70} Headache $
+\end{itemize}
+
+consideriamo un set $ \mathcal{V} $, espresso nella forma $ C(a) $, che rappresenta i sintomi e i segni nella forma:
+\[ \mathcal{V} = \{ Paranoia(Pietro), Headache(Pietro) \} \]
+sappiamo che  $ \mathcal{V} $ non è implicato dalla base di conoscenza, ma che $ \textbf{KB} \sqcup \mathcal{V} $ è \textit{consistente}.
+Utilizzando la  logica $ \mathcal{ALC} + \mathbf{T}_{\mathbf{R}}^{\mathtt{P}} $ siamo interessati a trovare 
+una diagnosi per i sintomi di $ Pietro $, cioè un insieme di \textit{asserzioni} $ D $ tali che $ \textbf{KB} \sqcup D \models \mathcal{V} $.\\
+Seguendo l'esempio:
+\begin{itemize}
+	\item $ D_1 = \{AlzheimerPatient(Pietro)\} $ \textbf{segue logicamente}
+	\item $ D_2 = \{Depressed(Pietro)\} $ \textbf{non segue logicamente}
+	\item $ D_3 = \{AlzheimerPatient(Pietro), Depressed(Pietro)\} $ \textbf{segue logicamente}
+\end{itemize}
+che corrispondono a
+\begin{itemize}
+	\item \makebox[5,5cm]{$ \mathbf{T}(AlzheimerPatient)(Pietro) $\hfill} è implicato da $ \textbf{KB} \sqcup D_1 \land \textbf{KB} \sqcup D_3 $
+	\item \makebox[5,5cm]{$ \mathbf{T}(Depressed)(Pietro) $ \hfill} è implicato solo in $ \textbf{KB} \sqcup D_3 $
+	\item \makebox[5,5cm]{$ \mathbf{T}(DiabetesPatient)(Pietro) $ \hfill} non è implicato da nessuna \textbf{KB}
+\end{itemize}
+Possiamo ragionare sugli scenari, consideriamo, ad esempio, $ D_3 $ con 
+\[ \mathfrak{Tip}_{\mathcal{A}} = {(Pietro,AlzheimerPatient), (Pietro,Depressed)} \] 
+e con $ \mathcal{P_{A}} = [0.525,0.556] $ dove $ 0.525 = 0.85 \times 0.65 $ è la probabilità di equipaggiare
+la proprietà tipica del concetto $ AlzheimerPatient $, discorso analogo per $ Depressed $.
+Utilizzando quanto visto precedentemente si considerano le seguenti estensioni
+\begin{itemize}
+	\item \makebox[13.97cm]{$ \mathcal{\widetilde{A}}^3_1 = \{\mathbf{T}(AlzheimerPatient)(Pietro)\} $\hfill} 
+		con $ \mathcal{P_{\widetilde{A}^\mathit{3_1}}} =  0.525 \times 0.463 = 0.243 $
+	\item \makebox[13.97cm]{$ \mathcal{\widetilde{A}}^3_3 = \{\mathbf{T}(AlzheimerPatient)(Pietro), \mathbf{T}(Depressed)(Pietro)\} $ \hfill}
+		con $ \mathcal{P_{\widetilde{A}^\mathit{3_3}}} = 0.556 \times 0.557 = 0.309  $
+\end{itemize}
+deduciamo, dunque, che:
+\[ \textbf{KB} \sqcup D_i \models (\mathcal{ALC} + \mathbf{T}_{\mathbf{R}}^{\mathtt{P}}) ^{(0,1)} Paranoia(Pietro), Headache(Pietro) \]
+con $ i = 1,3 $, vale a dire che tutte le asserzioni di cui sopra rappresentano una diagnosi per i sintomi $ \mathcal{V} $
 
 E con questo concludiamo la trattazione dei fondamenti di logica.\\ 
 Questa capitolo altro non è che un sunto, a tratti informale, della storia di questa branca matematica  

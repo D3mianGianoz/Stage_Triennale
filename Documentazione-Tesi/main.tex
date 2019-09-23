@@ -35,16 +35,22 @@
 % testa e fondo pagina che richiamano il frontespizio durante la lettura 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+
+% Nome capitolo in basso a sinistra al posto di \chaptername \thechapter
+\renewcommand{\chaptermark}[1]{%
+	\markboth{\thechapter.\ #1}{}}
+	
 % da customizzare a piacere
 \fancyhead{}
 \fancyhead[RO,LE]{Diagnosis by Numbers}
 \fancyfoot{}
 \fancyfoot[LE,RO]{\thepage}
-\fancyfoot[LO,CE]{Capitolo \thechapter}
+\fancyfoot[LO,CE]{\leftmark}
 \fancyfoot[CO,RE]{Damiano Gianotti}
 % Per cambiare lo spessore delle linee di testa e piè pagina
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
+
 
 % bibliografia
 \usepackage[backend=biber]{biblatex}
@@ -66,7 +72,8 @@
 	\chapter{Strumenti utilizzati}
 	\input{chapters/chapter03}
 	
-	\chapter{Caso d'uso: Strumento per il supporto diagnostico}
+	\chapter{Caso d'uso: Tool per il supporto diagnostico}
+	\chaptermark{Caso d'uso}
 	\input{chapters/chapter04}
 	
 	\chapter{Conclusione e sviluppi futuri}

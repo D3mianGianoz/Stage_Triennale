@@ -46,5 +46,5 @@ if __name__ == '__main__':
     print("\nFine simulazione, tempo totale: ", float(t), " s")
 
     OntologyManager.remove_onto_file()
-    query_result.save_query_result("caso_di_studio_alt")
+    #query_result.save_query_result("caso_di_studio_alt")
 

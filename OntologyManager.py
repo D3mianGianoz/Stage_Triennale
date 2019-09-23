@@ -123,7 +123,7 @@ class OntologyManager:
             not_class_c = self.create_class("Not(" + class_sy.name + ")")
             class_c.equivalent_to = [Not(not_class_c)]
             self.add_member_to_class(pname, not_class_c, symp=True)
-            print("Sintomo aggiunto: " + pname + ": " + class_c.name)
+            print("Sintomo aggiunto: " + pname + ": " + not_class_c.name)
 
     def save_base_world(self):
         self.onto.save("ontoBase.owl", format="ntriples")
