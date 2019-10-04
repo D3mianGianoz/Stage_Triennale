@@ -1,14 +1,14 @@
 In questo capitolo verrà descritto il programma oggetto della tesi DbN (Diagnosis by Numbers) che altro 
 non è che un'estensione di \textbf{PEAR} (Probability of Exceptions and typicAlity Reasoner) \cite{PEAR}.
-Inizialmente si fornirà un breve riassunto del lavoro di Soriano; successivamente cosa sia stato preso o meno.\\
+Inizialmente si fornirà un breve riassunto del lavoro di Soriano; successivamente cosa sia stato preso o meno.
 Poi obiettivi posti e aggiunte ed infine il progetto completo con annesso esempio.
 Come linguaggio per lo sviluppo è stato scelto \emph{Python} (in particolare la sua
 versione \textit{Python3.7}) per diversi motivi, eccone alcuni:
 \begin{itemize}
 	\item continuità con il lavoro precedente;
 	\item la presenza di nuove API (vedi \ref{sec: OwlR2} pag. \pageref{sec: OwlR2});
-	\item tipicamente richiede meno codice rispetto ad altri;
-	\item è uno dei linguaggi più popolari per l'elaborazione scientifica;
+	\item tipicamente richiede meno codice rispetto ad altre soluzioni;
+	\item è uno dei linguaggi più popolari per l'elaborazione scientifica.
 \end{itemize}
 
 \section{PEAR - Sintesi}
@@ -27,7 +27,7 @@ Il funzionamento dell'intero strumento è riassumibile in questi passi:
 	\item viene verificata o meno la consequenzialità logica del fatto $ F $ dato in input per ogni scenario;
 	\item infine vengono mostrati i risultati dell'interrogazione.
 \end{enumerate}
-Questo è possibile anche grazie alla seguente architettura(vedi Figura \ref{fig:schemaPEAR}), dove i singoli file richiamano, spesso, i concetti teorici associati, precedentemente illustrati.
+Questo è possibile anche grazie alla seguente architettura (vedi Figura \ref{fig:schemaPEAR}), dove i singoli file richiamano, spesso, i concetti teorici associati, precedentemente illustrati.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=\linewidth]{immagini/architetturaPEAR.png}
@@ -115,7 +115,7 @@ La stessa ontologia espressa in termini di \textbf{KB}$ (\mathcal{T}, \mathcal{A
 
 In fondo al documento troviamo un nuovo elemento, i costi diagnostici; ogni malattia tipica avrà
 un costo associato e, alla fine dell'elaborazione, verranno elaborati e combinati per assegnare al singolo
-scenario un costo indicativo, al fine di dare un ulteriore criterio di preferenza al medico.
+scenario un costo indicativo, al fine di dare un ulteriore criterio di preferenza al medico. Allo stato attuale i costi sono puramente d'esempio e non realistici.
 \inputminted[firstline=13]{text}{codice/ExOntoInput.txt}
 Sotto \mintinline{text}{Set_cost_of} vi sono le coppie malattia-costo stimato (in €)
 
@@ -331,7 +331,8 @@ cerca all'interno dell'\mintinline{Python}{ontology_manager} l’oggetto \mintin
 
 Abbiamo deciso di ignorare lo scenario $ \emptyset $ poiché è il più banale, già scartato in altri contesti.
 Infatti è corretto logicamente generare tale scenario ma, verificato o meno se sia conseguenza logica della KB,
-non ha molto senso dare una diagnosi del tipo: con una probabilità X non ha niente.
+non ha molto senso dare una diagnosi del tipo: con una probabilità X non ha niente,
+o, comunque, per arrivare a questo non è necessario utilizzare tutta questa tecnologia.
 
 \section{L'inferenza}
 Il file \emph{ReasoningOnScenarios.py} si occupa di verificare se i sintomi in input
@@ -473,14 +474,3 @@ grafici. Questo conclude la simulazione.
 Abbiamo trattato lo strumento nel modo più completo possibile, cercando, però, di evitare
 dettagli o piccolezze trascurabili, focalizzando l'attenzione il più possibile sugli
 elementi importanti e peculiari.
-
-                                                            
-\begin{comment}
-
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{plot/DepressionEx2.pdf}
-\end{figure}
-\end{comment}
-
-

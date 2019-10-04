@@ -24,10 +24,10 @@ OWl2 possiede due semantiche:
 		\begin{itemize}
 			\item estende la semantica formale di RDF
 			\item ha la massima espressività 
-			\item la decibilità non garantita
+			\item la decibilità non è garantita
 		\end{itemize}
 \end{itemize}
-la sēmantikós è basata su \textbf{iff} (se e solo se) quindi:
+la semantica è basata su \textbf{iff} (se e solo se) quindi:
 \[ C \text{ è sottoclasse di D } \iff  \text{istanze di } C \subseteq \text{istanze di } D \]
 
 \subsection{Caratteristiche}
@@ -113,7 +113,7 @@ Permette di legare due individui tramite una proprietà.
 \mint{XML}{ObjectPropertyAssertion(:haMoglie :Donna :Uomo)}
 \subsection{Classi complesse e implementazione di $ \sqcap,\sqcup,\exists $ e $ \forall $}
 Tramite opportuni costrutti è possibile specificare classi complicate e relazionarle, 
-anche grazie all'operatore di intersezione $\cap$ e disgiunzione $ \cup $.
+anche grazie all'operatore di intersezione $\sqcap$ e disgiunzione $ \sqcup $.
 \begin{minted}{XML}
 	EquivalentClasses(:Padre
 		ObjectIntersectionOf(:Uomo :Genitore))
@@ -132,10 +132,10 @@ L'individuo \textit{Marco} è una \textit{Persona} (e) non \textit{Genitore}.
 			ObjectComplementOf(:Genitore))
 	:Marco)
 \end{minted}
-Vediamo, infine, come si possa utilizzare i quantificatori $ \exists $ e $ \forall $ con qualche esempio.
+Vediamo, infine, come si possano utilizzare i quantificatori $ \exists $ e $ \forall $ con qualche esempio.
 La classe \textit{Genitore} è l'insieme di quegli individui che possiedono almeno un'istanza 
 di \textit{Persona} che è loro Figlio; una persona è \textit{Felice} quanto tutti 
-i suoi figli sono felici. Le persone che non hanno figli, vengono inclusi come felici.
+i suoi figli sono felici. Le persone che non hanno figli, vengono correttamente considerati felici.
 \begin{multicols}{2}
 	Quantificatore esistenziale $ \exists $
 	\begin{minted}{XML}
@@ -154,7 +154,7 @@ i suoi figli sono felici. Le persone che non hanno figli, vengono inclusi come f
 	\end{minted}
 \end{multicols}
 
-Questo conclude la nostra breve visione sintetica del linguaggio.
+Questo conclude la nostra visione sintetica del linguaggio.
 
 \subsection{OWL2 \emph{Versus} DB e considerazioni finali}
 I file \textit{.owl} conservano informazioni ma nonostante ciò OWL2 \textbf{non} è un framework
@@ -163,8 +163,9 @@ la semantica di base ha delle differenze sostanziali.
 
 In primis l'assunzione di mondo: un fatto non contenuto in un \textbf{DB} è considerato falso (mondo chiuso) mentre nel mondo
 logico viene considerato mancante (mondo aperto). In secondo luogo, classi e proprietà possono avere definizioni multiple e OWL non richiede che le uniche proprietà di un individuo siano quelle della classe a cui appartiene.
+Come terzo punto, ci teniamo a sottolineare un ulteriore differenza sostanziale: con i \textbf{DB} non faccio ragionamento, non esplicito informazioni implicite, con OWL sì.
 Infine ricordiamo ciò che abbiamo visto a \ref{code:preambolo} : le informazioni riguardanti un singolo individuo 
-possono essere distribuite su più documenti diversi, contrariamente ad un classico \textbf{DB}.
+possono essere distribuite su più documenti diversi, contrariamente ad un classico database.
 
 In conclusione vogliamo ricordare che OWL \textbf{non} è un linguaggio di programmazione, bensì
 un linguaggio \textit{dichiarativo}, in grado di rappresentare della conoscenza. Diversi sono gli strumenti
@@ -175,7 +176,7 @@ Nella sezione successiva tratteremo alcuni di questi tool che fanno parte di DbN
 Lavorare direttamente con OWL è impegnativo e tedioso, ma, in nostro soccorso, arrivano le API (Application Programming Interface).
 Tra le più recenti e interessanti spicca Owlready2 \cite{OwlReady}, pratica libreria \textit{ontology-oriented}, scritta in Python3. Owlready versione 2 permette un accesso trasparente alle ontologie, contrariamente alle API basate su Java.
 Può caricare ontologie OWL2 come oggetti Python, modificarli, salvarli e, appoggiandosi ad  \textit{HermiT} e \textit{Pellet} (reasoner scritti in Java), eseguire veri e propri ragionamenti.
-Vediamo alcune caratteristiche chiave
+Vediamo alcune caratteristiche chiave.
 
 \subsection{Tabella di conversione}
 Se dovessimo "convertire" le formule tra Description Logics, Owlready2 e/o Protegè,
@@ -192,7 +193,13 @@ con le Logiche Descrittive.
 \inputminted{Python}{codice/IntroOwlReady2.py}
 
 \subsection{Architettura}
-Owlready2 mantiene un quadstore (\textbf{DB} di quadruple) RDF in un database ottimizzato \textit{SQLite3}, sia in memoria che, opzionalmente, su disco.\\
+Le RDF Quadruple giocano un ruolo importante, diamone una definizione : 
+Sia $ S $ un insieme di fonti di dati, che è un sottoinsieme del $ IRIs $ set (cioe $ S \subseteq \mathcal{I} $. Una coppia ordinata $ (t,g) $ della tripla $ t = (s,p,o) $ e del
+grafo $ g \in S $ e $ t \in get(c) $ è una tripla nel grafo $ g $, dove $ get $ è una richiesta HTTP get request, e il risultato della richiesta non può essere un insieme vuoto 
+($ get(s) \not = \empty $. La quadrupla $ (s,p,o,g) $ è chiamata una RDF quadrupla (RDF quad).
+
+
+Owlready2 mantiene, quindi, un quadstore (\textbf{DB} di quadruple) RDF in un database ottimizzato \textit{SQLite3}, sia in memoria che, opzionalmente, su disco.\\
 Fornisce, inoltre, un accesso di alto livello alle classi e agli oggetti presenti 
 nell'ontologia. Classi e Individui vengono caricati dinamicamente dal \textbf{DB} secondo
 necessità, salvati in memoria e poi eliminati quando non più necessari.
@@ -211,10 +218,13 @@ Owlready si distingue come uno degli approcci più avanzati. In particolare,
 è in grado di classificare automaticamente (non solo gli individui ma anche le classi),
 compiere "reasoning" sul mondo locale chiuso e non e proporre una sintassi ad alto livello per
 definire i vincoli "role-fillers". Queste ed altre caratteristiche risultano cruciali quando
-si lavora con ontologie mediche, ma posso essere utili anche in altri domini.
+si lavora utilizzando ontologie mediche, ma, certamente, non sfigurano anche in altri domini
+applicativi.
 
-Questo sono le componenti chiave di un sistema capace di adattarsi a
-differenti casi d’uso in maniera decisamente flessibile
+Ecco, quindi, quali sono le componenti chiavi di un sistema capace di adattarsi a
+differenti casi d’uso, in maniera decisamente flessibile e dinamica.
+
+\clearpage
 
 \section{Plotly} \label{sec: Plotly}
 Plotly.py è una delle migliori librerie \textit{Open Source} di plotting: supporta oltre 40 tipi di grafici unici, 

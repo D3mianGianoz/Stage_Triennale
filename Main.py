@@ -40,7 +40,7 @@ if __name__ == '__main__':
     ontology_manager.show_scenarios()
     query_result = is_logical_consequence(ontology_manager)
     query_result.show_query_result()
-    query_result.create_and_show_plot(sym, ontology_manager.cost_dict)
+    #query_result.create_and_show_plot(sym, ontology_manager.cost_dict)
 
     t = time() - t
     print("\nFine simulazione, tempo totale: ", float(t), " s")
