@@ -1,4 +1,3 @@
-from InputFromFile import read_symptoms
 from QueryResult import QueryResult
 
 '''

@@ -14,6 +14,7 @@ Utilizza il concetto di "mondo indipendente" per ottimizzare le operazioni
 '''
 
 
+# noinspection PyUnresolvedReferences
 class OntologyManager:
     def __init__(self, iri="http://www.example.org/onto.owl"):
         self.typical_facts_list = list()
@@ -62,6 +63,7 @@ class OntologyManager:
     # only per ogni
     # some invece significa esiste
 
+    # noinspection PyUnresolvedReferences
     def add_typical_fact(self, t_class_identifier, class_identifier, probability="No probability"):
         with self.onto:
             t_class_identifier_1 = self.create_class(t_class_identifier.name + "1")

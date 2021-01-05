@@ -18,7 +18,7 @@ def build_ontology(onto_manager: OntologyManager):
                 if class_name.startswith("Not"):
                     class_name = strip_not(class_name)
                     onto_manager.create_class(class_name)
-                    test = onto_manager.create_class("Not("+class_name+")")
+                    test = onto_manager.create_class("Not(" + class_name + ")")
                     test.equivalent_to = [
                         onto_manager.create_complementary_class(onto_manager.get_class(class_name))]
                 else:
@@ -105,7 +105,8 @@ def read_symptoms(ontology_manager, result: bool = False):
         symptoms_for_plot += "#" + patient_str + " "
     file_object.close()
 
-    if result: return symptoms_for_plot
+    if result:
+        return symptoms_for_plot
 
 
 def strip_not(string_to_strip: str):

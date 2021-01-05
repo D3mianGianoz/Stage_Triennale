@@ -81,6 +81,7 @@ class QueryResult:
         self.fig.add_trace(trace2, secondary_y=True)
 
         # Added titles and fonts
+        titlefont = dict(family="Courier New, monospace", size=18, color="#7f7f7f")
         self.fig.update_layout(
             title=go.layout.Title(
                 text="Result of Computation on Symptoms: " + patient_symptoms,
@@ -90,30 +91,18 @@ class QueryResult:
             xaxis=go.layout.XAxis(
                 title=go.layout.xaxis.Title(
                     text="Set of Diagnosis",
-                    font=dict(
-                        family="Courier New, monospace",
-                        size=18,
-                        color="#7f7f7f"
-                    )
+                    font=titlefont
                 )
             ),
             yaxis=go.layout.YAxis(
                 title=go.layout.yaxis.Title(
                     text="Probability: Max " + tot_prb_for,
-                    font=dict(
-                        family="Courier New, monospace",
-                        size=18,
-                        color="#7f7f7f"
-                    )
+                    font=titlefont
                 )
             ),
             yaxis2=dict(
                 title="Euro €",
-                titlefont=dict(
-                    family="Courier New, monospace",
-                    size=18,
-                    color="#7f7f7f"
-                )
+                titlefont=titlefont
             ),
             hovermode="x"
         )
